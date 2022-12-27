@@ -4,6 +4,7 @@
 	 */
 	define('INDEX_URL', "./index.php");
 	define('ROUTES_FILE', "./routes.php");
+	define('404', "./404.php");
 
 	/**
 	 * Routes PHP (Views)
@@ -26,6 +27,8 @@
 
 	// users
 	define('USERDETAILS_VIEW', './app/views/users/userdetails.php');
+	define('PROFILE_VIEW', './app/views/users/userprofile.php');
+	define('CHANGEPASS_VIEW', './app/views/users/changepass.php');
 
 	/**
 	 * Routes PHP (Controllers)
@@ -56,7 +59,7 @@
 	define('DEFAULT_USER', './app/assets/img/default_user.jpg');
 	define('BACKGROUND_CMS', './app/assets/img/background_cms.png');
 	define('LOGO_POSTS', './app/assets/img/logo_posts.png');
-
+	define('404_IMG', './app/assets/img/404.jpg');
 
 	/**
 	 * Routes Video
@@ -67,6 +70,7 @@
 	 * Routes CSS
 	 */
 	define('STYLES', './app/assets/css/styles.css');
+	define('STYLES_USERPROFILE', './app/assets/css/userprofile.css');
 
 	/**
 	 * Routes JS

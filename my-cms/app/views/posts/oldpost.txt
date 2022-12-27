@@ -62,3 +62,19 @@
 			// 		echo '</div>';
 			// 	echo '</div>';
 			// }
+
+/*
+			foreach ($posts as $post) {
+				echo '<div class="card mx-auto d-flex justify-content-center my-5" style="width: 18rem; flex">';
+					echo '<img src="' . $post['header_image'] . '" class="card-img-top" alt="...">';
+					echo '<div class="card-body">';
+						echo '<h5 class="card-title">' . $post['title'] . '</h5>';
+						echo '<p class="card-text max-lines">' . $post['content'] . '</p>';
+						echo '<p class="card-text"><i class="fas fa-user mx-2"></i><small class="text-muted">' . $post['author'] . '</small><i class="fas fa-clock mx-2"></i><small class="text-muted">' . $post['time'] . '</small></p>';
+						// foreach ($post['tags'] as $tag) {
+						// 	echo '<span class="badge bg-dark">' . $tag . '</span>';
+						// }
+						echo '<br/><br><a href="' . INDEX_URL . '?action=post&id=' . $post['id'] . '" class="btn btn-outline-dark">Ver más</a>';
+				echo '</div>';
+			}
+			*/

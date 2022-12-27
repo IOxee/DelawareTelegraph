@@ -7,16 +7,19 @@
 	function ctl_posts() {
 		$stmt = mdl_get_posts();
 		$posts = array();
+		$tags = array();
 
 		foreach ($stmt as $row) {
+			$tags = explode(',', $row['postTag']);
+
 			$posts[] = array(
 				'id' => $row['postID'],
 				'title' => $row['postTitle'],
 				'content' => $row['postDesc'],
 				'time' => $row['postTime'],
-				'tags' => $row['postTag'],
+				'tags' => $tags,
 				'author' => $row['postAuthor'],
-				'header_image' => $row['postHeaderIMG']
+				'image' => $row['postHeaderIMG']
 			);
 		}
 
@@ -26,14 +29,17 @@
 	function ctl_posts_by_id() {
 		$stmt = mdl_get_posts_by_id($_GET['id']);
 		$posts = array();
+		$tags = array();
 
 		foreach ($stmt as $row) {
+			$tags = explode(',', $row['postTag']);
+
 			$posts[] = array(
 				'id' => $row['postID'],
 				'title' => $row['postTitle'],
 				'content' => $row['postDesc'],
 				'time' => $row['postTime'],
-				'tags' => $row['postTag'],
+				'tags' => $tags,
 				'author' => $row['postAuthor'],
 				'header_image' => $row['postHeaderIMG']
 			);

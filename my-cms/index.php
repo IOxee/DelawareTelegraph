@@ -19,10 +19,17 @@
 		require CTL_LOGOUT;
 		logout();
 
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'changepass') {
+		require CTL_USER;
+		changepass($_POST['oldpassword'], $_POST['newpassword'], $_POST['repeatnewpassword'], $_POST['changepass']);
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'profile') {
 		require CTL_USER;
 		profile();
+
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'editprofile') {
+		require CTL_USER;
+		editprofile($_POST['fullname'], $_POST['mail'], $_POST['dob'], $_POST['img'], $_POST['bio'], $_POST['linkedin'], $_POST['github'], $_POST['twitter'], $_POST['instagram'], $_POST['facebook'], $_POST['editprofile']);
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'posts' && isset($_SESSION['username'])) {
 		require CTL_POSTS;
@@ -31,6 +38,9 @@
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'post' && isset($_GET['id'])) {
 		require CTL_POSTS;
 		ctl_posts_by_id($_GET['id']);
+
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel') {
+
 
 
 

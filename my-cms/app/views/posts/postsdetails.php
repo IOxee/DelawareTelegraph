@@ -36,16 +36,41 @@
 			/**
 			 * Main Content
 			 */
-			foreach ($posts as $post) {
-				echo '<div class="container">';
-					echo '<div class="row">';
-						echo '<div class="col-12">';
-							echo '<h1 class="text-center">' . $post['title'] . '</h1>';
-							echo '<p class="text-center">' . $post['content'] . '</p>';
-						echo '</div>';
+			$post = [];
+			foreach ($posts as $post_content) {
+				$post = $post_content;
+			}
+
+
+			echo '<div class="container">';
+				echo '<div class="row">';
+					echo '<div class="col-12">';
+						echo '<a href="' . INDEX_URL . '?action=posts" class="btn btn-outline-dark my-1"><i class="fa-solid fa-arrow-left"></i> Tornar</a>';
+						if (isset($_SESSION['username'])) {
+							if ($_SESSION['username'] == $post['author'] || $_SESSION['level'] == 10) {
+								// este grupo de botones tiene que ir a la derecha de la pantalla
+								echo '<div class="float-end">';
+									echo '<a href="' . INDEX_URL . '?action=editpost&id=' . $post['id'] . '" class="btn btn-outline-dark my-3"><i class="fa-solid fa-edit"></i> Editar</a>';
+									echo '<a href="' . INDEX_URL . '?action=deletepost&id=' . $post['id'] . '" class="btn btn-outline-dark my-3 mx-2"><i class="fa-solid fa-trash"></i> Eliminar</a>';
+								echo '</div>';
+							}
+						}
 					echo '</div>';
 				echo '</div>';
-			}
+
+				echo '<div class="row">';
+					echo '<div class="col-12">';
+						echo '<h1 class="text-center">' . $post['title'] . '</h1>';
+						echo '<p class="">' . $post['content'] . '</p>';
+						echo '<img src="' . $post['header_image'] . '" alt="Post Image" class="img-fluid mx-auto d-block">';
+						echo '<p class="text-end">Publicat per: ' . $post['author'] . '<br/> Posat en: ' . $post['time'] . '</p>';
+						foreach ($post['tags'] as $tag) {
+							echo '<badge class="badge bg-dark text-white float-end mx-1">' . $tag . '</a></badge>';
+						}
+					echo '</div>';
+				echo '</div>';
+			echo '</div>';
+
 		?>
 
 
