@@ -20,11 +20,11 @@
 					<li>
 						<a class="btn btn-outline-dark my-3" href="<?php echo INDEX_URL ?>?action=aboutme">About Me</a>
 					</li>
-					<div class="mx-2 my-3"></div>
+					<div class="mx-1 my-3"></div>
 					<li class="nav-item dropdown">
 						<?php
 						 	if (!isset($_SESSION['username'])) {
-								echo '<a class="btn btn-outline-dark mx-2 my-3 dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-door-open"></i></a>';
+								echo '<a class="btn btn-outline-dark mx-2 my-3 dropdown-toggle" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user-lock"></i></a>';
 							} else {
 								if (isset($_SESSION['avatar']) && $_SESSION['avatar'] != '') {
 									echo '<img src=' . $_SESSION['avatar'] . ' width="64" height="64" class="mx-2 dropdown-toggle rounded" id="navbarDropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false"></img>';
@@ -45,10 +45,11 @@
 							?>
 						</ul>
 					</li>
+					<div class="mx-1 my-3"></div>
 					<li class="nav-item dropdown">
 						<?php
 							if (!isset($_SESSION['username'])) {
-								echo '<a class="btn btn-outline-dark mx-1 my-3 dropdown-toggle" id="navbarRegisterDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-key"></i></a>';
+								echo '<a class="btn btn-outline-dark mx-1 my-3 dropdown-toggle" id="navbarRegisterDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-file-pen"></i></a>';
 							}
 						?>
 						<ul class="dropdown-menu p-3 border border-dark" style="width:500px" aria-labelledby="navbarRegisterDrop">

@@ -11,7 +11,6 @@
 
 		foreach ($stmt_social as $row_social) {
 			if ($row_social['nick'] == $_SESSION['username']) {
-				// add social media to array
 				$social_media = array(
 					'facebook' => $row_social['facebook'],
 					'twitter' => $row_social['twitter'],

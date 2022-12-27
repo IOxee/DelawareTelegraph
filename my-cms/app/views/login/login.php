@@ -3,9 +3,10 @@
 
 	function view_login() {
 		require CTL_LOGIN;
+		echo '<h6 class="text-center">Iniciar Sessió</h6>'
 		?>
 		<form action=<?php echo INDEX_URL . '?action=login' ?> method='POST'>
-			<div class='mb-3'>
+			<div class='mb-3 my-2'>
 				<input type='text' class='form-control text-center' id='username' name='username' placeholder='Nickname'>
 			</div>
 			<div class='mb-3'>

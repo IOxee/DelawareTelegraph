@@ -4,7 +4,6 @@
 	 */
 	define('INDEX_URL', "./index.php");
 	define('ROUTES_FILE', "./routes.php");
-	define('404', "./404.php");
 
 	/**
 	 * Routes PHP (Views)
@@ -15,6 +14,7 @@
 	define('HEADER_VIEW', './app/views/app/header.php');
 	define('NAVBAR_VIEW', './app/views/app/navbar.php');
 	define('FOOTER_VIEW', './app/views/app/footer.php');
+	define('STATUS_404', "./app/views/app/404.php");
 
 
 	// login
@@ -30,6 +30,9 @@
 	define('PROFILE_VIEW', './app/views/users/userprofile.php');
 	define('CHANGEPASS_VIEW', './app/views/users/changepass.php');
 
+	// reporter
+	define('REPORTER_VIEW', './app/views/report/reporter_panel.php');
+
 	/**
 	 * Routes PHP (Controllers)
 	 */
@@ -39,6 +42,7 @@
 	define('CTL_LOGOUT', './app/controllers/login/ctl_logout.php');
 	define('CTL_USER', './app/controllers/users/ctl_users.php');
 	define('CTL_POSTS', './app/controllers/posts/ctl_posts.php');
+	define('CTL_REPORTER', './app/controllers/reporter/ctl_reporter.php');
 
 
 	/**
@@ -49,6 +53,7 @@
 	define('MDL_REGISTER', './app/models/login/mdl_register.php');
 	define('MDL_USER', './app/models/users/mdl_users.php');
 	define('MDL_POSTS', './app/models/posts/mdl_posts.php');
+	define('MDL_REPORTERS', './app/models/report/mdl_reporter.php');
 
 
 
@@ -59,7 +64,7 @@
 	define('DEFAULT_USER', './app/assets/img/default_user.jpg');
 	define('BACKGROUND_CMS', './app/assets/img/background_cms.png');
 	define('LOGO_POSTS', './app/assets/img/logo_posts.png');
-	define('404_IMG', './app/assets/img/404.jpg');
+	define('404_IMG', './app/assets/img/404.png');
 
 	/**
 	 * Routes Video

@@ -1,5 +1,6 @@
 <?php
 	include_once MDL_DATABASE;
+	include_once STATUS_404;
 	require MDL_LOGIN;
 
 	function login($username, $password, $login) {
@@ -27,6 +28,7 @@
 					}
 				} else {
 					echo 'No existeix aquest usuari';
+					status_toast('Error', 'No existeix aquest usuari');
 					header('Refresh: 1; URL=' . INDEX_URL);
 				}
 			}

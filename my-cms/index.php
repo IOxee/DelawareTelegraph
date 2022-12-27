@@ -2,8 +2,6 @@
 	define('MY_CMS', 'CMS');
 	require './routes.php';
 	require './app/config/db.php';
-	//require NAVBAR_VIEW;
-
 
 	session_start();
 
@@ -41,6 +39,14 @@
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel') {
 
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['view'])) {
+		require CTL_REPORTER;
+		reporter_panel();
+
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['create_post'])) {
+		require CTL_REPORTER;
+		echo $_POST['title'], $_POST['tags'], $_POST['content'], $_POST['image'];
+		create_post($_POST['title'], $_POST['tags'], $_POST['content'], $_POST['image']);
 
 
 

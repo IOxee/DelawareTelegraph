@@ -8,9 +8,9 @@
 		</a>
 
 		<?php if($_SESSION['level'] >= 5) : ?>
-			<button type="button" class="btn btn-outline-dark w-100 p-1 my-2" id="reporterOpen">
+			<a class="btn btn-outline-dark w-100 p-1 my-2" id="reporterOpen" href='<?php echo INDEX_URL . '?action=reporter_panel&view'?>'>
 				<i class="fa-solid fa-pen mx-2"></i>Panel del reportero
-			</button>
+			</a>
 		<?php endif; ?>
 
 		<?php if($_SESSION['level'] >= 10) : ?>

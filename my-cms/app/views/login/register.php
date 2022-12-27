@@ -2,6 +2,7 @@
 	defined('MY_CMS') or die('Permission denied');
 
 	function view_register() {
+		echo '<h6 class="text-center">Registrar-se</h6>';
 		?>
 		<form action="<?php echo INDEX_URL . '?action=register' ?>" method="POST">
 			<div class="input-group mb-3">

@@ -60,11 +60,11 @@
 								echo '<div class="text-center mt-3">';
 									echo '<span class="bg-dark text-white p-1 px-4 rounded">Pro</span>';
 									echo '<h5 class="mt-2 mb-0">' . $user['fullname'] . '</h5>';
-									echo '<p>NO JOB</p>';
+									// echo '<p>NO JOB</p>';
 								echo '</div>';
 
 								echo '<div class="px-4 mt-1">';
-									echo '<p class="fonts">' . $user['bio'] . '</p>';
+									echo '<p class="fonts text-center">' . $user['bio'] . '</p>';
 								echo '</div>';
 
 								if ($user['social_media'] != NULL || $user['social_media'] != '') {
@@ -159,7 +159,7 @@
 												echo '<label for="profilePicture">Foto de perfil</label>';
 												echo '<input type="text" class="form-control my-2 border border-dark" id="profilePicture" name="img">';
 											echo '</div>';
-											echo '<div>';
+											echo '<div class="form-group">';
 												echo '<label for="textareaBio">Biografía</label>';
 												echo '<textarea class="form-control my-2 border border-dark" id="textareaBio" name="bio" rows="3">' . $user['bio'] . '</textarea>';
 											echo '</div>';
