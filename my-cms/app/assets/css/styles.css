@@ -1,0 +1,16 @@
+.bg {
+	background: url('../img/background_cms.png');
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: contain;
+	height: 500px;
+}
+
+.max-lines {
+	display: block;/* or inline-block */
+	word-wrap: normal;
+	overflow: hidden !important;
+	max-height: 3.6em;
+	line-height: 1.8em;
+	text-overflow: ellipsis;
+}
