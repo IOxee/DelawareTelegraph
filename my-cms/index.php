@@ -37,6 +37,10 @@
 		require CTL_POSTS;
 		ctl_posts_by_id($_GET['id']);
 
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'deletepost' && isset($_GET['id'])) {
+		require CTL_POSTS;
+		delete_post($_GET['id']);
+
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel') {
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['view'])) {
@@ -45,8 +49,11 @@
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['create_post'])) {
 		require CTL_REPORTER;
-		echo $_POST['title'], $_POST['tags'], $_POST['content'], $_POST['image'];
 		create_post($_POST['title'], $_POST['tags'], $_POST['content'], $_POST['image']);
+
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['create_category'])) {
+		require CTL_REPORTER;
+		create_category($_POST['category_name'], $_POST['description']);
 
 
 
@@ -60,12 +67,3 @@
 		require CTL_MAIN;
 		start_app();
  	}
-
-/*
-	elseif (isset($_POST['action']) && $_POST['action'] == 'register') {
-		require './app/controllers/login/ctl_register.php';
-		die($_POST['username']);
-
-		register($_POST['username'], $_POST['fullname'], $_POST['password'], $_POST['dob'], $_POST['mail'], $_POST['reapeatpassword'], $_POST['register']);
-
-*/

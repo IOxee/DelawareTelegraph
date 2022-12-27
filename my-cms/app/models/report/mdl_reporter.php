@@ -7,12 +7,23 @@
     }
 
     function mdl_create_post($title, $tags, $content, $author, $image) {
-        echo $title, $content, date('d, M, Y, H:i'), $tags, $author, $image;
-        // INSERT INTO `posts` (`postID`, `postTitle`, `postDesc`, `postTime`, `postTag`, `postAuthor`, `postHeaderIMG`) VALUES (NULL, 'Eficiencia de Mascaras', 'FFP1: Es el nivel de protección más bajo.\r\n Estas máscaras no son eficientes contra gases venenosos ni fibrogénicas de polvo o aerosoles. Este nivel es apto en construcción o en industria alimentaria.\r\nFPP2: Las máscaras de gas de este nivel se utilizan en entornos de trabajo en los que las partículas nocivas y mutagénicas se pueden encontrar en el aire: por ejemplo, en la industria metalúrgica y la minería. Los trabajadores están en contacto frecuente con aerosoles, niebla y humo que se afectan a las vías respiratorias.', '2022-12-27 09:01:40', 'survival, mask', 'Survivor', 'https://i.imgur.com/ehnORnz.png')
+        echo $title, $content, date("Y-m-d H:i:s"), $tags, $author, $image;
         $stmt = db_query_prepare(
             'INSERT INTO posts (postTitle, postDesc, postTime, postTag, postAuthor, postHeaderIMG) VALUES (?, ?, ?, ?, ?, ?)',
-            array($title, $content, date()
-        )
+            array($title, $content, date("Y-m-d H:i:s"), $tags, $author, $image),
+            'ssssss'
+        );
 
+        echo $stmt->error;
+
+        return $stmt;
+    }
+
+    function mdl_create_category($name, $description) {
+        $stmt = db_query_prepare(
+            'INSERT INTO posts_categories (name, description) VALUES (?, ?)',
+            array($name, $description),
+            'ss'
+        );
         return $stmt;
     }

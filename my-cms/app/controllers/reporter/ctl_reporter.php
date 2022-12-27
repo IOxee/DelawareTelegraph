@@ -41,3 +41,13 @@
             status_404();
         }
     }
+
+    function create_category($name, $description) {
+        $stmt = mdl_create_category($name, $description);
+        if ($stmt) {
+            header('Location: '. INDEX_URL . '?action=reporter_panel&view');
+        } else {
+            echo 'Error al crear la categoria';
+            status_404();
+        }
+    }

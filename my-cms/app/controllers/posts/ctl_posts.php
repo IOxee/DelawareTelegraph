@@ -47,3 +47,13 @@
 
 		include POSTSDETAILS_VIEW;
 	}
+
+	function delete_post($id) {
+		$stmt = mdl_delete_post($id);
+		if ($stmt) {
+			header('Location: '. INDEX_URL . '?action=posts');
+		} else {
+			echo 'Error al eliminar el post';
+			status_404();
+		}
+	}

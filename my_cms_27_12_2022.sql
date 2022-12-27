@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 27-12-2022 a las 11:19:12
+-- Tiempo de generación: 27-12-2022 a las 17:52:31
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 7.4.3
 
@@ -50,6 +50,48 @@ INSERT INTO `posts` (`postID`, `postTitle`, `postDesc`, `postTime`, `postTag`, `
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `posts_categories`
+--
+
+CREATE TABLE `posts_categories` (
+  `id` int NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `posts_categories`
+--
+
+INSERT INTO `posts_categories` (`id`, `name`, `description`) VALUES
+(1, 'IT', 'INFORMATICA HACKING INTELIGENCIA ARTIFICIAL');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `social_media`
+--
+
+CREATE TABLE `social_media` (
+  `id` int NOT NULL,
+  `nick` varchar(255) DEFAULT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
+  `twitter` varchar(255) DEFAULT NULL,
+  `instagram` varchar(255) DEFAULT NULL,
+  `linkedin` varchar(255) DEFAULT NULL,
+  `github` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `social_media`
+--
+
+INSERT INTO `social_media` (`id`, `nick`, `facebook`, `twitter`, `instagram`, `linkedin`, `github`) VALUES
+(2, 'admin', NULL, 'https://www.twitter.com/admin', NULL, 'https://www.linkedin.com/admin', 'https://www.github.com/admin');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -62,16 +104,15 @@ CREATE TABLE `users` (
   `dob` date DEFAULT NULL,
   `level` int NOT NULL DEFAULT '0',
   `img` varchar(255) DEFAULT NULL,
-  `social_media` varchar(255) DEFAULT NULL,
-  `bio` text DEFAULT NULL
+  `bio` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `nick`, `password`, `fullname`, `mail`, `dob`, `level`, `img`, `social_media`, `bio`) VALUES
-(9, 'admin', '$2y$04$e7TDxnIIBU7ZL0p1/85r5eooVxDuRg2/tX1ylkaBKtGpNAVLu7MzC', 'Admin Admin', 'admin@admin.es', '2022-12-09', 10, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `nick`, `password`, `fullname`, `mail`, `dob`, `level`, `img`, `bio`) VALUES
+(9, 'admin', '$2y$10$EzWaudFvfh6aD147dExxz.tvSA9Wp8hDYDUYuLUgofB.TJlRFIThC', 'Admin Admin', 'admin@admin.es', '2022-12-09', 10, '', 'teste');
 
 --
 -- Índices para tablas volcadas
@@ -83,6 +124,18 @@ INSERT INTO `users` (`id`, `nick`, `password`, `fullname`, `mail`, `dob`, `level
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`postID`),
   ADD UNIQUE KEY `postTitle` (`postTitle`);
+
+--
+-- Indices de la tabla `posts_categories`
+--
+ALTER TABLE `posts_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `social_media`
+--
+ALTER TABLE `social_media`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `users`
@@ -98,7 +151,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `postID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `postID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `posts_categories`
+--
+ALTER TABLE `posts_categories`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `social_media`
+--
+ALTER TABLE `social_media`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

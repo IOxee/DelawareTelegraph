@@ -10,3 +10,8 @@
 		$stmt = db_query_fetchall('SELECT * FROM posts WHERE postID = ' . $id);
 		return $stmt;
 	}
+
+	function mdl_delete_post($id) {
+		$stmt = db_query_delete('DELETE FROM posts WHERE postID = ?', $id, 'i');
+		return $stmt;
+	}

@@ -52,3 +52,15 @@
 	function fetch_assoc($stmt) {
 		return $stmt->fetch_assoc();
 	}
+
+	function db_query_delete($sql, $data, $type) {
+		$db_conn = db_connect();
+
+		$stmt = $db_conn->prepare($sql);
+		$stmt->bind_param($type, $data);
+		$stmt->execute();
+
+		return $stmt;
+
+		db_disconnect($db_conn, $stmt);
+	}

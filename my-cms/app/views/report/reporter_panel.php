@@ -85,7 +85,9 @@
                                                         echo '<div class="card-body">';
                                                             echo '<h5 class="card-title">Crear Categoria</h5>';
                                                             echo '<p class="card-text">Crea una nueva categoria para tu blog</p>';
-                                                            echo '<a href="#" class="btn btn-outline-dark">Crear</a>';
+                                                            echo '<form action="' . INDEX_URL . '?action=reporter_panel&view&create_category=true" method="POST">';
+                                                                echo '<button type="submit" class="btn btn-outline-dark">Crear</button>';
+                                                            echo '</form>';
                                                         echo '</div>';
                                                     echo '</div>';
                                                 echo '</div>';
@@ -157,6 +159,25 @@
                                 echo '<button type="submit" class="btn btn-outline-dark">Crear</button>';
                             echo '</form>';
                         }
+
+                        if (isset($_GET['create_category']) == true) {
+                            echo '<h3 class="text-center">Crear Categoria</h3>';
+                            echo '<form action="' . INDEX_URL . '?action=reporter_panel&create_category" method="POST">';
+                                echo '<div class="mb-3">';
+                                    echo '<label for="name" class="form-label">Nombre</label>';
+                                    echo '<input type="text" class="form-control" id="name" name="category_name" placeholder="Nombre de la categoria">';
+                                echo '</div>';
+
+                                echo '<div class="mb-3">';
+                                    echo '<label for="description" class="form-label">Descripcion</label>';
+                                    echo '<textarea class="form-control" id="description" name="description" rows="3"></textarea>';
+                                echo '</div>';
+
+                                echo '<button type="submit" class="btn btn-outline-dark">Crear</button>';
+                            echo '</form>';
+                        }
+
+
                         echo '</div>';
                     echo '</div>';
                 echo '</div>';
