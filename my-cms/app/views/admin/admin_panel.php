@@ -9,8 +9,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 
         <?php
-            echo '<link rel="stylesheet" href="' . STYLES_ADMIN_DASHBOARD . '">';
             echo '<link rel="stylesheet" href="' . STYLES_CDN_HEADERS . '">';
+            echo '<link rel="stylesheet" href="' . STYLES_ADMIN_DASHBOARD . '">';
         ?>
 
     </head>
@@ -65,6 +65,14 @@
                                         echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>';
                                         echo '<span class="ml-2">Integracions</span>';
                                     echo '</button>';
+                            echo '</li>';
+
+                            echo '<li class="nav-item fixed-bottom">';
+                                if (date("Y") == "2022") {
+                                    echo '<p class="ml-2 text-dark">© ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
+                                } else {
+                                    echo '<p class="ml-2 text-dark">© 2022 - ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
+                                }
                             echo '</li>';
                         echo '</ul>';
                     echo '</div>';
@@ -186,6 +194,7 @@
                                                     echo '<th scope="col">Nom Complet</th>';
                                                     echo '<th scope="col">Mail</th>';
                                                     echo '<th scope="col">Data de neixement</th>';
+                                                    echo '<th scope="col">Roles</th>';
                                                     echo '<th scope="col">Accions</th>';
                                                 echo '</tr>';
                                                 echo '</thead>';
@@ -197,6 +206,14 @@
                                                             echo '<td>' . $registered_users[$i]['fullname'] . '</td>';
                                                             echo '<td>' . $registered_users[$i]['mail'] . '</td>';
                                                             echo '<td>' . $registered_users[$i]['dob'] . '</td>';
+                                                            echo '<td>';
+                                                                if ($registered_users[$i]['level'] < 5) {
+                                                                    echo '<a href="'. INDEX_URL . '?action=setuser&id=' . $registered_users[$i]['id'] . '&reporter" class="btn btn-sm btn-outline-primary mx-2">Set Reporter</a>';
+                                                                }
+                                                                if ($registered_users[$i]['level'] < ADMIN_LEVEL) {
+                                                                    echo '<a href="'. INDEX_URL . '?action=setuser&id=' . $registered_users[$i]['id'] . '&admin" class="btn btn-sm btn-outline-dark mx-2">Set Admin</a>';
+                                                                }
+                                                            echo '</td>';
                                                             echo '<td>';
                                                                 echo '<a href="'. INDEX_URL . '?action=profile&id=' . $registered_users[$i]['id'] . '" class="btn btn-sm btn-outline-primary mr-2">Veure</a>';
                                                                 echo '<a href="'. INDEX_URL . '?action=profile&id=' . $registered_users[$i]['id'] . '&editprofile=true" class="btn btn-sm btn-outline-dark mx-2">Editar</a>';
@@ -246,7 +263,7 @@
                                                             echo '<td>' . $all_posts[$i]['postTime'] . '</td>';
                                                             echo '<td>';
                                                                 echo '<a href="'. INDEX_URL . '?action=post&id=' . $all_posts[$i]['postID'] . '" class="btn btn-sm btn-outline-primary mr-2">Veure</a>';
-                                                                echo '<a href="'. INDEX_URL . '?action=post&id=' . $all_posts[$i]['postID'] . '&pdf" class="btn btn-sm btn-outline-success mx-2">Descarregar</a>';
+                                                                echo '<a href="'. INDEX_URL . '?action=pdf&id=' . $all_posts[$i]['postID'] . '" class="btn btn-sm btn-outline-success mx-2">Descarregar</a>';
                                                                 echo '<a href="'. INDEX_URL . '?action=post&id=' . $all_posts[$i]['postID'] . '&editpost=true" class="btn btn-sm btn-outline-dark mx-2">Editar</a>';
                                                                 echo '<a href="'. INDEX_URL . '?action=deletepost&id=' . $all_posts[$i]['postID'] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
                                                             echo '</td>';
@@ -262,7 +279,6 @@
                     }
 
                     if (isset($_GET['admins'])) {
-                        // quiero una tabla con todos los usuarios que sean admins y que puedan editarlos y eliminarlos y cambiarles el level
                         echo '<nav aria-label="breadcrumb">';
                             echo '<ol class="breadcrumb">';
                                 echo '<li class="breadcrumb-item">Home</li>';
@@ -316,6 +332,10 @@
                     }
                 echo '</div>';
             echo '</div>';
+
+
+            echo "<script src='" . SCRIPT_JS . "'></script>";
+			include_once SCRIPTS_CDN_BODY;
         ?>
 
 
@@ -340,5 +360,6 @@
 
             });
         </script>
+
     </body>
 </html>

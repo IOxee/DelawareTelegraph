@@ -26,7 +26,7 @@
 		require CTL_USER;
 		profile();
 
-	} elseif (isset($_GET['action']) && $_GET['action'] == 'profile'  && isset($_GET['id'])) {
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'profile' && isset($_GET['id'])) {
 		require CTL_USER;
 		profile_by_id($_GET['id']);
 
@@ -50,7 +50,7 @@
 		require CTL_POSTS;
 		edit_post($_GET['id'], $_POST['title'], $_POST['content'], $_POST['image'], $_POST['tags']);
 
-	} elseif (isset($_GET['action']) && $_GET['action'] == 'post' && isset($_GET['id']) && isset($_GET['pdf'])) {
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'pdf' && isset($_GET['id'])) {
 		require CTL_POSTS;
 		ctl_posts_by_id_pdf($_GET['id']);
 

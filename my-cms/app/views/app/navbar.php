@@ -14,7 +14,9 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li>
-							<a class="btn btn-outline-dark my-3" href="<?php echo INDEX_URL ?>?action=posts">Posts</a>
+							<form action='<?php echo INDEX_URL ?>?action=posts' method='post'>
+								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="posts"><i class="fa-solid fa-newspaper"></i> Posts</button>
+							</form>
 						</li>
 					</ul>
         		</div>
@@ -68,16 +70,3 @@
 		</nav>
 		<?php
 	}
-
-/*
-<div class="float-right" style="font-size: 0.5em">
-
-
-
-						<?php if (date('Y') == 2022) { ?>
-							<p class="text-muted">© 2022 - <?php echo PROJECT_AUTHOR ?></p>
-						<?php } else { ?>
-							<p class="text-muted">© 2022 - <?php echo  date('Y') . PROJECT_AUTHOR ?></p>
-						<?php } ?>
-					</div>
-*/

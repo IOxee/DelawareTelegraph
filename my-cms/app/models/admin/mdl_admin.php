@@ -15,7 +15,12 @@
         return $stmt;
     }
 
-    function mdl_get_user($id) {
+    function mdl_get_user_nick($id) {
         $stmt = db_query_prepare("SELECT nick FROM users WHERE id = ?", array($id), "i");
+        return $stmt;
+    }
+
+    function mdl_get_user_by_id($id) {
+        $stmt = db_query_fetchall("SELECT * FROM users WHERE id = " . $id);
         return $stmt;
     }

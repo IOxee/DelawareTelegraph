@@ -6,7 +6,7 @@
         echo '<footer class="navbar navbar-expand-lg navbar-light bg-light">';
             echo '<div class="container-fluid">';
                 echo '<div class="float-left">';
-                    echo '<img src="' . BUSINESS_LOGO . '" alt="logo" class="img-fluid">';
+                    echo '<img src="' . LOGO . '" alt="logo" class="img-fluid">';
                 echo '</div>';
                 echo '<div class="text-center">';
                     if (date('Y') == 2022) {

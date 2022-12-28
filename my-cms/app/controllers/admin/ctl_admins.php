@@ -32,23 +32,21 @@
     }
 
     function set_user($id, $level) {
-        $stmt_getuser = mdl_get_user($id);
-        if ($stmt_getuser) {
-            $user = $stmt_getuser;
-            if ($user == $_SESSION["username"]) {
-               $_SESSION["level"] = $level;
+        $stmt_user = mdl_get_user_by_id($id);
 
-                $stmt = mdl_set_user($id, $level);
-                if ($stmt) {
-                    header("Location: " . INDEX_URL . "?apanel&dashboard");
-                } else {
-                    echo "Error al actualizar el usuario";
-                }
-            }
+        if ($stmt_user[0]['nick'] == $_SESSION['username']) {
+            echo "No puedes cambiar tu propio nivel";
+            header("Refresh: 1; url=" . INDEX_URL . "?action=apanel&dashboard");
         } else {
-            echo "Error al obtener el usuario";
-            return;
+            $stmt = mdl_set_user($id, $level);
+            if ($stmt) {
+                header("Location: " . INDEX_URL . "?action=posts");
+            } else {
+                echo "Error al cambiar el nivel del usuario";
+            }
         }
+
+
     }
 
     function delete_user($id) {
