@@ -11,7 +11,7 @@
 			$_SESSION['username'] = $username;
 			$_SESSION['level'] = $level;
 
-			header('Location: ' . INDEX_URL);
+			header('Location: ' . INDEX_URL . '?action=posts');
 			return true;
 		} else {
 			return false;

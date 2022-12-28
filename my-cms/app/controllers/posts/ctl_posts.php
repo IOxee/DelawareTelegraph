@@ -57,3 +57,40 @@
 			status_404();
 		}
 	}
+
+	function edit_post($id, $title, $content, $image, $tags) {
+		$stmt = mdl_edit_post($id, $title, $content, $image, $tags);
+		if ($stmt) {
+			header('Location: '. INDEX_URL . '?action=post&id=' . $id . '');
+		} else {
+			echo 'Error al editar el post';
+			status_404();
+		}
+
+	}
+
+	function ctl_posts_by_id_pdf($id) {
+		$stmt = mdl_get_posts_by_id($id);
+		$posts = array();
+		$tags = array();
+
+		foreach ($stmt as $row) {
+			$tags = explode(',', $row['postTag']);
+
+			$posts[] = array(
+				'id' => $row['postID'],
+				'title' => $row['postTitle'],
+				'content' => $row['postDesc'],
+				'time' => $row['postTime'],
+				'tags' => $tags,
+				'author' => $row['postAuthor'],
+				'header_image' => $row['postHeaderIMG']
+			);
+		}
+
+		// generate PDF
+		// require_once LIBS . 'tcpdf/tcpdf.php';
+
+		// $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+	}

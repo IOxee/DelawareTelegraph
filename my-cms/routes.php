@@ -24,6 +24,7 @@
 	// posts
 	define('POSTS_VIEW', './app/views/posts/posts.php');
 	define('POSTSDETAILS_VIEW', './app/views/posts/postsdetails.php');
+	define('EDIT_POST_VIEW', './app/views/posts/edit_post.php');
 
 	// users
 	define('USERDETAILS_VIEW', './app/views/users/userdetails.php');
@@ -32,6 +33,9 @@
 
 	// reporter
 	define('REPORTER_VIEW', './app/views/report/reporter_panel.php');
+
+	// admin
+	define('ADMIN_PANEL_VIEW', './app/views/admin/admin_panel.php');
 
 	/**
 	 * Routes PHP (Controllers)
@@ -43,6 +47,7 @@
 	define('CTL_USER', './app/controllers/users/ctl_users.php');
 	define('CTL_POSTS', './app/controllers/posts/ctl_posts.php');
 	define('CTL_REPORTER', './app/controllers/reporter/ctl_reporter.php');
+	define('CTL_ADMINS', './app/controllers/admin/ctl_admins.php');
 
 
 	/**
@@ -54,6 +59,7 @@
 	define('MDL_USER', './app/models/users/mdl_users.php');
 	define('MDL_POSTS', './app/models/posts/mdl_posts.php');
 	define('MDL_REPORTERS', './app/models/report/mdl_reporter.php');
+	define('MDL_ADMIN', './app/models/admin/mdl_admin.php');
 
 
 
@@ -65,6 +71,7 @@
 	define('BACKGROUND_CMS', './app/assets/img/background_cms.png');
 	define('LOGO_POSTS', './app/assets/img/logo_posts.png');
 	define('404_IMG', './app/assets/img/404.png');
+	define('BUSINESS_LOGO', './app/assets/img/business_logo.png');
 
 	/**
 	 * Routes Video
@@ -76,8 +83,16 @@
 	 */
 	define('STYLES', './app/assets/css/styles.css');
 	define('STYLES_USERPROFILE', './app/assets/css/userprofile.css');
+	define('STYLES_CDN_HEADERS', './app/assets/php/cdn_headers.php');
+	define('STYLES_ADMIN_DASHBOARD', './app/assets/css/admin_dashboard.css');
 
 	/**
 	 * Routes JS
 	 */
 	define('SCRIPT_JS', './app/assets/js/script.js');
+	define('SCRIPTS_CDN_BODY', './app/assets/php/cdn_body.php');
+
+	/**
+	 * Routes LIBS
+	 */
+	define('LIBS', './app/libs/');

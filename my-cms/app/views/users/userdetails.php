@@ -13,8 +13,8 @@
 			</a>
 		<?php endif; ?>
 
-		<?php if($_SESSION['level'] >= 10) : ?>
-			<a href="./admin.php" class="btn btn-outline-dark w-100 p-1 my-2" id="adminOpen" href='<?php echo INDEX_URL . '?action=apanel>' ?>'>
+		<?php if($_SESSION['level'] >= ADMIN_LEVEL) : ?>
+			<a class="btn btn-outline-dark w-100 p-1 my-2" id="adminOpen" href='<?php echo INDEX_URL . '?action=apanel&dashboard' ?>'>
 				<i class="fa-solid fa-gear mx-2"></i>Panel de Administración
 			</a>
 		<?php endif; ?>

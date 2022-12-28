@@ -106,3 +106,35 @@
 		}
 
 	}
+
+	function profile_by_id($id) {
+		$stmt = get_users_by_id($id);
+		$stmt_social = get_social_media();
+
+		foreach ($stmt_social as $row_social) {
+			if ($row_social['id'] == $id) {
+				$social_media = array(
+					'facebook' => $row_social['facebook'],
+					'twitter' => $row_social['twitter'],
+					'instagram' => $row_social['instagram'],
+					'linkedin' => $row_social['linkedin'],
+					'github' => $row_social['github'],
+				);
+			}
+		}
+
+		foreach ($stmt as $row) {
+			$users[] = array(
+				'id' => $row['id'],
+				'username' => $row['nick'],
+				'fullname' => $row['fullname'],
+				'dob' => $row['dob'],
+				'mail' => $row['mail'],
+				'avatar' => $row['img'],
+				'social_media' => $social_media,
+				'bio' => $row['bio'],
+			);
+		}
+
+		include PROFILE_VIEW;
+	}

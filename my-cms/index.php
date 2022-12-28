@@ -2,6 +2,7 @@
 	define('MY_CMS', 'CMS');
 	require './routes.php';
 	require './app/config/db.php';
+	require './app/config/sh_config.php';
 
 	session_start();
 
@@ -25,6 +26,10 @@
 		require CTL_USER;
 		profile();
 
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'profile'  && isset($_GET['id'])) {
+		require CTL_USER;
+		profile_by_id($_GET['id']);
+
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'editprofile') {
 		require CTL_USER;
 		editprofile($_POST['fullname'], $_POST['mail'], $_POST['dob'], $_POST['img'], $_POST['bio'], $_POST['linkedin'], $_POST['github'], $_POST['twitter'], $_POST['instagram'], $_POST['facebook'], $_POST['editprofile']);
@@ -41,7 +46,14 @@
 		require CTL_POSTS;
 		delete_post($_GET['id']);
 
-	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel') {
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'editpost' && isset($_GET['id'])) {
+		require CTL_POSTS;
+		edit_post($_GET['id'], $_POST['title'], $_POST['content'], $_POST['image'], $_POST['tags']);
+
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'post' && isset($_GET['id']) && isset($_GET['pdf'])) {
+		require CTL_POSTS;
+		ctl_posts_by_id_pdf($_GET['id']);
+
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['view'])) {
 		require CTL_REPORTER;
@@ -55,7 +67,23 @@
 		require CTL_REPORTER;
 		create_category($_POST['category_name'], $_POST['description']);
 
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel') {
+		require CTL_ADMINS;
+		admin_panel();
 
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'setuser') {
+		require CTL_ADMINS;
+		if (isset($_GET['admin'])) {
+			set_user($_GET['id'], ADMIN_LEVEL);
+		} elseif (isset($_GET['reporter'])) {
+			set_user($_GET['id'], 5);
+		} elseif (isset($_GET['user'])) {
+			set_user($_GET['id'], 0);
+		}
+
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel' && isset($_GET['deleteuser'])) {
+		require CTL_ADMINS;
+		delete_user($_GET['id']);
 
 
 

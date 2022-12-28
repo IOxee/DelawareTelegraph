@@ -27,3 +27,8 @@
         );
         return $stmt;
     }
+
+    function get_categories_quantity() {
+        $stmt = db_query_fetchall('SELECT COUNT(*) FROM posts_categories');
+        return $stmt;
+    }

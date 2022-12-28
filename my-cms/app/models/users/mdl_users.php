@@ -29,3 +29,18 @@
 		$stmt = db_query_prepare("UPDATE social_media SET facebook = ?, twitter = ?,  instagram = ?,  linkedin= ?,  github = ? WHERE id = ? AND nick = ?", array($facebook, $twitter, $instagram, $linkedin, $github, $id, $username), 'sssssis');
 		return $stmt;
 	}
+
+	function get_users_quantity() {
+		$stmt = db_query_fetchall("SELECT COUNT(*) FROM users");
+		return $stmt;
+	}
+
+	function get_registered_users() {
+		$stmt = db_query_fetchall("SELECT * FROM users ORDER BY id");
+		return $stmt;
+	}
+
+	function get_users_by_id($id) {
+		$stmt = db_query_fetchall("SELECT * FROM users WHERE id = ?", array($id), 'i');
+		return $stmt;
+	}
