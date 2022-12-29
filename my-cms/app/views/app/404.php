@@ -1,9 +1,6 @@
 <?php
-    defined('MY_CMS') or die('Permission denied');
-
-
     function status_404(){
-        echo '<img src="./app/assets/img/404.png" alt="D\'oh" width="100%" height="100%">';
+        echo '<img src="../../assets/img/404.png" alt="D\'oh" width="100%" height="100%">';
         if ($_SESSION['username']) {
             echo '<a href="./index.php?action=posts" class="btn btn-outline-dark">Tornar a la pagina principal</a>';
         } else {

@@ -9,13 +9,13 @@
 
 		<?php if($_SESSION['level'] >= 5) : ?>
 			<a class="btn btn-outline-dark w-100 p-1 my-2" id="reporterOpen" href='<?php echo INDEX_URL . '?action=reporter_panel&view'?>'>
-				<i class="fa-solid fa-pen mx-2"></i>Panel del reportero
+				<i class="fa-solid fa-pen mx-2"></i>Tauler del reporter
 			</a>
 		<?php endif; ?>
 
 		<?php if($_SESSION['level'] >= ADMIN_LEVEL) : ?>
 			<a class="btn btn-outline-dark w-100 p-1 my-2" id="adminOpen" href='<?php echo INDEX_URL . '?action=apanel&dashboard' ?>'>
-				<i class="fa-solid fa-gear mx-2"></i>Panel de Administración
+				<i class="fa-solid fa-gear mx-2"></i>Tauler d'administració
 			</a>
 		<?php endif; ?>
 

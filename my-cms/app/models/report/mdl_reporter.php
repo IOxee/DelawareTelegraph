@@ -6,12 +6,11 @@
         return $stmt;
     }
 
-    function mdl_create_post($title, $tags, $content, $author, $image) {
-        echo $title, $content, date("Y-m-d H:i:s"), $tags, $author, $image;
+    function mdl_create_post($title, $tags, $content, $author, $image, $category) {
         $stmt = db_query_prepare(
-            'INSERT INTO posts (postTitle, postDesc, postTime, postTag, postAuthor, postHeaderIMG) VALUES (?, ?, ?, ?, ?, ?)',
-            array($title, $content, date("Y-m-d H:i:s"), $tags, $author, $image),
-            'ssssss'
+            'INSERT INTO posts (postTitle, postDesc, postTime, postTag, postAuthor, postHeaderIMG, postCategory) VALUES (?, ?, ?, ?, ?, ?, ?)',
+            array($title, $content, date("Y-m-d H:i:s"), $tags, $author, $image, $category),
+            'sssssss'
         );
 
         echo $stmt->error;
@@ -30,5 +29,10 @@
 
     function get_categories_quantity() {
         $stmt = db_query_fetchall('SELECT COUNT(*) FROM posts_categories');
+        return $stmt;
+    }
+
+    function mdl_get_reporters() {
+        $stmt = db_query_fetchall('SELECT * FROM users WHERE level = 5');
         return $stmt;
     }

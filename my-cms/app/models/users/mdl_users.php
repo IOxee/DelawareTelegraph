@@ -41,6 +41,11 @@
 	}
 
 	function get_users_by_id($id) {
-		$stmt = db_query_fetchall("SELECT * FROM users WHERE id = ?", array($id), 'i');
+		$stmt = db_query_fetchall("SELECT * FROM users WHERE id = " . $id);
+		return $stmt;
+	}
+
+	function get_users_nick_by_id($id) {
+		$stmt = db_query_prepare("SELECT nick FROM users WHERE id = ?", array($id), 'i');
 		return $stmt;
 	}

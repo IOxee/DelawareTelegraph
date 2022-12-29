@@ -1,4 +1,5 @@
 <?php
+    defined('MY_CMS') or die('Permission denied');
 
     function get_admins_quantity() {
         $stmt = db_query_fetchall("SELECT COUNT(*) FROM users WHERE level > " . ADMIN_LEVEL - 1 . "");

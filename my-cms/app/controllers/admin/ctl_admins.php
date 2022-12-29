@@ -1,4 +1,6 @@
 <?php
+    defined('MY_CMS') or die('Permission denied');
+
     require_once MDL_DATABASE;
     require_once MDL_POSTS;
     require_once MDL_REPORTERS;

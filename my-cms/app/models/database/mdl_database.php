@@ -1,4 +1,5 @@
 <?php
+	defined('MY_CMS') or die('Permission denied');
 
 	function db_connect() {
 		$db_conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
@@ -63,4 +64,15 @@
 		return $stmt;
 
 		db_disconnect($db_conn, $stmt);
+	}
+
+	function update_private($username, $show_mail, $show_dob, $show_fullname, $show_bio, $show_social, $send_notifications) {
+
+		$sql = "UPDATE users SET show_mail = ?, show_dob = ?, show_fullname = ?, show_bio = ?, show_social = ?, send_notifications = ? WHERE nick = ?";
+		$data = array($show_mail, $show_dob, $show_fullname, $show_bio, $show_social, $send_notifications, $username);
+		$type = "iiiiiis";
+
+		$stmt = db_query_prepare($sql, $data, $type);
+
+		return $stmt;
 	}

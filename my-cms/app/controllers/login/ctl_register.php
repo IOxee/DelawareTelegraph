@@ -1,4 +1,6 @@
 <?php
+	defined('MY_CMS') or die('Permission denied');
+
 	include_once MDL_DATABASE;
 	require MDL_REGISTER;
 

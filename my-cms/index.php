@@ -1,5 +1,7 @@
 <?php
 	define('MY_CMS', 'CMS');
+
+	require STATUS_404;
 	require './routes.php';
 	require './app/config/db.php';
 	require './app/config/sh_config.php';
@@ -22,13 +24,13 @@
 		require CTL_USER;
 		changepass($_POST['oldpassword'], $_POST['newpassword'], $_POST['repeatnewpassword'], $_POST['changepass']);
 
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'profile_id') {
+		require CTL_USER;
+		profile_by_id($_GET['id']);
+
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'profile') {
 		require CTL_USER;
 		profile();
-
-	} elseif (isset($_GET['action']) && $_GET['action'] == 'profile' && isset($_GET['id'])) {
-		require CTL_USER;
-		profile_by_id($_GET['id']);
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'editprofile') {
 		require CTL_USER;
@@ -61,11 +63,15 @@
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['create_post'])) {
 		require CTL_REPORTER;
-		create_post($_POST['title'], $_POST['tags'], $_POST['content'], $_POST['image']);
+		create_post($_POST['title'], $_POST['tags'], $_POST['content'], $_POST['image'], $_POST['category']);
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['create_category'])) {
 		require CTL_REPORTER;
 		create_category($_POST['category_name'], $_POST['description']);
+
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporters_profile') {
+		require CTL_REPORTER;
+		reporters_profile();
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel') {
 		require CTL_ADMINS;
@@ -85,11 +91,9 @@
 		require CTL_ADMINS;
 		delete_user($_GET['id']);
 
-
-
-
-
-
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'saveprivate') {
+		require CTL_USER;
+		save_private($_POST['showEmail'], $_POST['showDob'], $_POST['showFullname'], $_POST['showBio'], $_POST['showSocial'], $_POST['sendNotifications']);
 
 	} else { //Si no existe GET o POST -> muestra la pagina principal
 		require CTL_MAIN;

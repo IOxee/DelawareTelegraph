@@ -12,6 +12,7 @@
 	</head>
 	<body>
 		<?php
+			defined('MY_CMS') or die('Permission denied');
 			require_once NAVBAR_VIEW;
 			echo navbar();
 
@@ -57,7 +58,7 @@
 				echo '<div class="container" id="editpost">';
 					echo '<div class="row">';
 						echo '<div class="col-12 border border-dark rounded-2 mt-4">';
-							echo '<h2 class="m-1">Editar Post</h2>';
+							echo '<h2 class="m-1">Editar publicació</h2>';
 							echo '<form action="' . INDEX_URL . '?action=editpost&id=' . $post['id'] . '" method="POST" enctype="multipart/form-data">';
 								echo '<div class="mb-3">';
 									echo '<label for="title" class="form-label mt-4"><b>Títol</b></label>';
@@ -76,7 +77,7 @@
 									$tags = implode(',', $post['tags']);
 									echo '<input type="text" class="form-control border border-dark" id="tags" name="tags" value="' . $tags . '">';
 								echo '</div>';
-								echo '<button type="submit" class="btn btn-outline-dark mb-4"><b>Editar post</b></button>';
+								echo '<button type="submit" class="btn btn-outline-dark mb-4"><b>Editar publicació</b></button>';
 							echo '</form>';
 						echo '</div>';
 						echo '<div class="col-12">';

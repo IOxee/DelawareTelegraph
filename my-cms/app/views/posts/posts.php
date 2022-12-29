@@ -12,6 +12,7 @@
 	</head>
 	<body>
 		<?php
+			defined('MY_CMS') or die('Permission denied');
 			if (isset($_SESSION['username'])) {
 				require_once NAVBAR_VIEW;
 				echo navbar();
@@ -32,7 +33,7 @@
 								foreach ($post['tags'] as $tag) {
 									echo '<span class="badge bg-dark text-white mx-1">' . $tag . '</span>';
 								}
-								echo '<br/><a href="' . INDEX_URL . '?action=post&id=' . $post['id'] . '" class="btn btn-outline-dark my-2">Ver más</a>';
+								echo '<br/><a href="' . INDEX_URL . '?action=post&id=' . $post['id'] . '" class="btn btn-outline-dark my-2">Veure més</a>';
 							echo '</div>';
 						echo '</div>';
 					}

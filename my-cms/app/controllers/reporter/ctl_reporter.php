@@ -1,4 +1,6 @@
 <?php
+    defined('MY_CMS') or die('Permission denied');
+
     include_once MDL_DATABASE;
     require MDL_USER;
     require MDL_REPORTERS;
@@ -32,8 +34,8 @@
         include_once REPORTER_VIEW;
     }
 
-    function create_post($title, $tags, $content, $image) {
-        $stmt = mdl_create_post($title, $tags, $content, $_SESSION['username'], $image);
+    function create_post($title, $tags, $content, $image, $category) {
+        $stmt = mdl_create_post($title, $tags, $content, $_SESSION['username'], $image, $category);
         if ($stmt) {
             header('Location: '. INDEX_URL . '?action=posts');
         } else {
@@ -50,4 +52,22 @@
             echo 'Error al crear la categoria';
             status_404();
         }
+    }
+
+    function reporters_profile() {
+        // Quiero coger todos los usuarios que tengan un level igual a 5
+        $stmt = mdl_get_reporters();
+        foreach ($stmt as $row) {
+            $reporters[] = array(
+                'id' => $row['id'],
+                'username' => $row['nick'],
+                'fullname' => $row['fullname'],
+                'dob' => $row['dob'],
+                'mail' => $row['mail'],
+                'avatar' => $row['img'],
+                'bio' => $row['bio'],
+            );
+        }
+
+        include_once REPORTERS_PROFILES;
     }

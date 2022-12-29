@@ -18,6 +18,16 @@
 								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="posts"><i class="fa-solid fa-newspaper"></i> Posts</button>
 							</form>
 						</li>
+						<li>
+							<form action='<?php echo INDEX_URL ?>?action=reporters_profile' method='post'>
+								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="reporters_profile"><i class="fa-solid fa-user-tie"></i> Reporters</button>
+							</form>
+						</li>
+						<li>
+							<form action='<?php echo INDEX_URL ?>?action=categories' method='post'>
+								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="categories"><i class="fa-solid fa-tags"></i> Categories</button>
+							</form>
+						</li>
 					</ul>
         		</div>
 				<div class="float-right">

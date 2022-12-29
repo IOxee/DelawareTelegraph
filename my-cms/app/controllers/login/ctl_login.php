@@ -1,6 +1,7 @@
 <?php
+	defined('MY_CMS') or die('Permission denied');
+
 	include_once MDL_DATABASE;
-	include_once STATUS_404;
 	require MDL_LOGIN;
 
 	function login($username, $password, $login) {

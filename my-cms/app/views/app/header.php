@@ -1,4 +1,5 @@
 <?php
+	defined('MY_CMS') or die('Permission denied');
 
 	function view_header_without_login() {
 		?>

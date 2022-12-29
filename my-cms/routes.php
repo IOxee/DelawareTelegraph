@@ -33,6 +33,8 @@
 
 	// reporter
 	define('REPORTER_VIEW', './app/views/report/reporter_panel.php');
+	define('REPORTERS_PROFILES', './app/views/report/reporters.php');
+	define('REPORTER_PROFILE', './app/views/report/reporter_details.php');
 
 	// admin
 	define('ADMIN_PANEL_VIEW', './app/views/admin/admin_panel.php');
@@ -72,6 +74,7 @@
 	define('LOGO_POSTS', './app/assets/img/logo_posts.png');
 	define('404_IMG', './app/assets/img/404.png');
 	define('BUSINESS_LOGO', './app/assets/img/business_logo.png');
+	define('REPORTERS_LOGO', './app/assets/img/reporters_logo.png');
 
 	/**
 	 * Routes Video
