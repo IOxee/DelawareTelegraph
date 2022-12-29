@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bootstrap 5 Simple Admin Dashboard</title>
+        <title>My CMS</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 
@@ -28,52 +28,52 @@
                 echo '<div class="row">';
                     echo '<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">';
                         echo '<div class="position-sticky">';
-                            echo '<ul class="nav flex-column ml-3" >';
-                                echo '<li class="nav-item">';
+                            echo '<ul class="nav flex-column ml-3 mt-3 d-flex mx-auto" >';
+                                echo '<li class="nav-item my-2">';
                                     echo '<form action="' . INDEX_URL .'?action=apanel&dashboard" method="post">';
-                                        echo '<button type="submit" class="btn btn-outline-dark border border-grey" id="btn_dashboard">';
-                                            echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>';
-                                            echo '<span class="ml-2">Dashboard</span>';
+                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray" id="btn_dashboard">';
+                                            echo '<span class="ml-2"><i class="fa-solid fa-house mr-2"></i>Dashboard</span>';
+                                            echo '';
                                         echo '</button>';
                                     echo '</form>';
                                 echo '</li>';
-                                echo '<li class="nav-item">';
+
+                                echo '<li class="nav-item my-2">';
                                     echo '<form action="' . INDEX_URL . '?action=apanel&users" method="post">';
-                                        echo '<button type="submit" class="btn btn-outline-dark border border-white"  id="btn_users">';
-                                            echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>';
-                                            echo '<span class="ml-2">Usuaris</span>';
+                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_users">';
+                                            echo '<span class="ml-2"><i class="fa-solid fa-user mr-2"></i>Usuaris</span>';
                                         echo '</button>';
                                     echo '</form>';
-                            echo '</li>';
-                            echo '<li class="nav-item">';
-                                echo '<form action="' . INDEX_URL . '?action=apanel&posts" method="post">';
-                                    echo '<button type="submit" class="btn btn-outline-dark border border-white"  id="btn_posts">';
-                                        echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>';
-                                        echo '<span class="ml-2">Publicacions</span>';
-                                    echo '</button>';
-                                echo '</form>';
-                            echo '</li>';
-                            echo '<li class="nav-item">';
-                                echo '<form action="' . INDEX_URL . '?action=apanel&admins" method="post">';
-                                    echo '<button type="submit" class="btn btn-outline-dark border border-white"  id="btn_admins">';
-                                        echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>';
-                                        echo '<span class="ml-2">Administradors</span>';
-                                    echo '</button>';
-                                echo '</form>';
-                            echo '</li>';
-                            echo '<li class="nav-item">';
-                                echo '<form action="' . INDEX_URL .'?action=apanel&integrations" method="post">';
-                                    echo '<button type="submit" class="btn btn-outline-dark border border-white"  id="btn_integrations">';
-                                        echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>';
-                                        echo '<span class="ml-2">Integracions</span>';
-                                    echo '</button>';
-                            echo '</li>';
+                                echo '</li>';
+
+                                echo '<li class="nav-item my-2">';
+                                    echo '<form action="' . INDEX_URL . '?action=apanel&posts" method="post">';
+                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_posts">';
+                                            echo '<span class="ml-2"><i class="fa-solid fa-file mr-2"></i>Publicacions</span>';
+                                        echo '</button>';
+                                    echo '</form>';
+                                echo '</li>';
+
+                                echo '<li class="nav-item my-2">';
+                                    echo '<form action="' . INDEX_URL . '?action=apanel&admins" method="post">';
+                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_admins">';
+                                            echo '<span class="ml-2"><i class="fa-solid fa-users mr-2"></i>Administradors</span>';
+                                        echo '</button>';
+                                    echo '</form>';
+                                echo '</li>';
+
+                                echo '<li class="nav-item my-2">';
+                                    echo '<form action="' . INDEX_URL .'?action=apanel&integrations" method="post">';
+                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_integrations">';
+                                            echo '<span class="ml-2"><i class="fa-solid fa-layer-group mr-2"></i>Integracions</span>';
+                                        echo '</button>';
+                                echo '</li>';
 
                             echo '<li class="nav-item fixed-bottom">';
                                 if (date("Y") == "2022") {
-                                    echo '<p class="ml-2 text-dark">© ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
+                                    echo '<p class="ml-2 text-dark text-center">© ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
                                 } else {
-                                    echo '<p class="ml-2 text-dark">© 2022 - ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
+                                    echo '<p class="ml-2 text-dark text-center">© 2022 - ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
                                 }
                             echo '</li>';
                         echo '</ul>';
@@ -84,7 +84,7 @@
                     if (isset($_GET['dashboard'])) {
                         echo '<nav aria-label="breadcrumb">';
                             echo '<ol class="breadcrumb">';
-                                echo '<li class="breadcrumb-item">Home</li>';
+                                echo '<li class="breadcrumb-item" href="' . INDEX_URL .'?action=apanel&dashboard">Home</li>';
                                 echo '<li class="breadcrumb-item active" aria-current="page">Overview</li>';
                             echo '</ol>';
                         echo '</nav>';
@@ -98,7 +98,7 @@
                                     echo '<h5 class="card-header">Usauris Registrats</h5>';
                                     echo '<div class="card-body">';
                                         echo '<h5 class="card-title">Usuaris Totals: ' . $q_users . '</h5>';
-                                        echo '<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Veure usuaris</button>';
+                                        echo '<a class="btn btn-outline-dark" href="' . INDEX_URL . '?action=apanel&users">Veure usuaris</a>';
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
@@ -108,7 +108,7 @@
                                     echo '<h5 class="card-header">Publicacions Creades</h5>';
                                     echo '<div class="card-body">';
                                         echo '<h5 class="card-title">Publicacions Totales: ' . $q_posts . '</h5>';
-                                        echo '<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Veure publicacions</button>';
+                                        echo '<a class="btn btn-outline-dark" href="' . INDEX_URL . '?action=apanel&posts">Veure publicacions</a>';
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
@@ -118,7 +118,7 @@
                                     echo '<h5 class="card-header">Categories Existentes</h5>';
                                     echo '<div class="card-body">';
                                         echo '<h5 class="card-title">Categories Totals: ' . $q_categories . '</h5>';
-                                        echo '<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Veure categories</button>';
+                                        echo '<a class="btn btn-outline-dark" href="' . INDEX_URL . '?action=categories">Veure categories</a>';
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
@@ -128,7 +128,7 @@
                                     echo '<h5 class="card-header">Administradors</h5>';
                                     echo '<div class="card-body">';
                                         echo '<h5 class="card-title">Administradors Totals: ' . $q_admins . '</h5>';
-                                        echo '<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Veure administradors</button>';
+                                        echo '<a class="btn btn-outline-dark" href="' . INDEX_URL . '?action=apanel&admins">Veure administradors</a>';
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
@@ -176,7 +176,7 @@
                     if (isset($_GET['users'])) {
                         echo '<nav aria-label="breadcrumb">';
                             echo '<ol class="breadcrumb">';
-                                echo '<li class="breadcrumb-item">Home</li>';
+                                echo '<li class="breadcrumb-item" href="' . INDEX_URL .'?action=apanel&dashboard">Home</li>';
                                 echo '<li class="breadcrumb-item active" aria-current="page">Users</li>';
                             echo '</ol>';
                         echo '</nav>';
@@ -235,7 +235,7 @@
                     if (isset($_GET['posts'])) {
                         echo '<nav aria-label="breadcrumb">';
                             echo '<ol class="breadcrumb">';
-                                echo '<li class="breadcrumb-item">Home</li>';
+                                echo '<li class="breadcrumb-item" href="' . INDEX_URL .'?action=apanel&dashboard">Home</li>';
                                 echo '<li class="breadcrumb-item active" aria-current="page">Posts</li>';
                             echo '</ol>';
                         echo '</nav>';
@@ -283,7 +283,7 @@
                     if (isset($_GET['admins'])) {
                         echo '<nav aria-label="breadcrumb">';
                             echo '<ol class="breadcrumb">';
-                                echo '<li class="breadcrumb-item">Home</li>';
+                                echo '<li class="breadcrumb-item" href="' . INDEX_URL .'?action=apanel&dashboard">Home</li>';
                                 echo '<li class="breadcrumb-item active" aria-current="page">Administrators</li>';
                             echo '</ol>';
                         echo '</nav>';
@@ -330,6 +330,141 @@
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
+
+                    }
+
+                    if (isset($_GET['integrations'])) {
+                        echo '<nav aria-label="breadcrumb">';
+                            echo '<ol class="breadcrumb mb-4">';
+                                echo '<li class="breadcrumb-item" href="' . INDEX_URL .'?action=apanel&dashboard">Home</li>';
+                                echo '<li class="breadcrumb-item active" aria-current="page">Integrations</li>';
+                            echo '</ol>';
+                        echo '</nav>';
+
+                        if (isset($_GET['filesystem'])) {
+                            echo '<div class="row">';
+                                echo '<div class="col-12 col-xl-12 mb-4 mb-lg-0">';
+                                    echo '<div class="card">';
+                                        echo '<h5 class="card-header">CMS Local</h5>';
+                                        echo '<div class="card-body">';
+                                            echo '<div class="table-responsive">';
+                                                echo '<table class="table">';
+                                                    echo '<thead>';
+                                                    echo '<tr>';
+                                                        echo '<th scope="col">ID</th>';
+                                                        echo '<th scope="col">Nom</th>';
+                                                        echo '<th scope="col">Data de modificació</th>';
+                                                        echo '<th scope="col">Pes</th>';
+                                                        echo '<th scope="col">Accions</th>';
+                                                    echo '</tr>';
+                                                    echo '</thead>';
+                                                    echo '<tbody>';
+                                                        if (isset($_GET['dir'])) {
+                                                            if (strpos($_GET['dir'], '..') !== false || strpos($_GET['dir'], '/') !== false || strpos($_GET['dir'], '\\') !== false || strpos($_GET['dir'], '.') !== false) {
+                                                                $files = scandir(FILE_SYSTEM);
+                                                            } else {
+                                                                $files = scandir(FILE_SYSTEM . $_GET['dir']);
+                                                            }
+                                                        } else {
+                                                            $files = scandir(FILE_SYSTEM);
+                                                        }
+                                                        for ($i = 0; $i < count($files); $i++) {
+                                                            if ($files[$i] != '.' && $files[$i] != '..') {
+                                                                echo '<tr>';
+                                                                    echo '<th scope="row">' . $i . '</th>';
+                                                                    echo '<td>' . $files[$i] . '</td>';
+                                                                    if (!isset($_GET['dir'])) {
+                                                                        echo '<td>' . date("d/m/Y H:i:s", filemtime(FILE_SYSTEM . $files[$i])) . '</td>';
+                                                                        echo '<td>' . filesize(FILE_SYSTEM . $files[$i]) . ' KB </td>';
+                                                                    } else {
+                                                                        echo '<td>' . date("d/m/Y H:i:s", filemtime(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i])) . '</td>';
+                                                                        echo '<td>' . filesize(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i]) . ' KB </td>';
+                                                                    }
+                                                                    echo '<td>';
+                                                                        if (!isset($_GET['dir'])) {
+                                                                            if (filetype(FILE_SYSTEM . $files[$i]) == 'dir') {
+                                                                                $files_inside = scandir(FILE_SYSTEM . $files[$i]);
+                                                                                if (count($files_inside) > 2) {
+                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Veure</a>';
+                                                                                } else {
+                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2" disabled>Veure</a>';
+                                                                                }
+                                                                            }
+                                                                        } else {
+                                                                            if (filetype(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i]) == 'dir') {
+                                                                                $files_inside = scandir(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i]);
+                                                                                if (count($files_inside) > 2) {
+                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $_GET['dir'] . '/' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Veure</a>';
+                                                                                } else {
+                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $_GET['dir'] . '/' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2" disabled>Veure</a>';
+                                                                                }
+                                                                            }
+                                                                        }
+
+                                                                        if (!is_dir(FILE_SYSTEM . $files[$i])) {
+                                                                            echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&download=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
+                                                                        }
+                                                                        echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&delete=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
+                                                                    echo '</td>';
+                                                                echo '</tr>';
+                                                            }
+                                                        }
+                                                        if (isset($_GET['dir'])) {
+                                                            echo '<td colspan="6"><a href="'. INDEX_URL . '?action=apanel&integrations&filesystem" class="btn btn-sm btn-outline-primary mx-2">Tornar enrere</a></td>';
+                                                        }
+                                                    echo '</tbody>';
+                                                echo '</table>';
+                                            echo '</div>';
+                                        echo '</div>';
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>';
+
+                            if (isset($_GET['download'])) {
+                                if (!isset($_GET['dir'])) {
+                                    $file = FILE_SYSTEM . $_GET['download'];
+                                } else {
+                                    $file = FILE_SYSTEM . $_GET['dir'] . '/' . $_GET['download'];
+                                }
+                                if (file_exists($file)) {
+                                    $zip = new ZipArchive();
+                                    $zip_name = "download.zip";
+                                    if ($zip -> open($zip_name, ZIPARCHIVE::CREATE) !== TRUE) {
+                                        $error .= "* Sorry ZIP creation failed at this time";
+                                    }
+                                    $zip->addFile($file, $_GET['download']);
+                                    $zip->close();
+                                }
+                            }
+
+                            if (isset($_GET['delete'])) {
+                                if (!isset($_GET['dir'])) {
+                                    $file = FILE_SYSTEM . $_GET['delete'];
+                                } else {
+                                    $file = FILE_SYSTEM . $_GET['dir'] . '/' . $_GET['delete'];
+                                }
+                                if (file_exists($file)) {
+                                    // borralo
+                                    if (is_dir($file)) {
+                                        rmdir($file);
+                                    } else {
+                                        unlink($file);
+                                    }
+                                    echo '<script>window.location.href = "' . INDEX_URL . '?action=apanel&integrations&filesystem";</script>';
+                                }
+                            }
+                        } else {
+                            echo '<div class="row">';
+                                echo '<div class="col-12 col-xl-12 mb-4 mb-lg-0">';
+                                    echo '<div class="card">';
+                                        echo '<h5 class="card-header">CMS Local</h5>';
+                                        echo '<div class="card-body">';
+                                            echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem" class="btn btn-sm btn-outline-dark mx-2">Veure fitxers</a>';
+                                        echo '</div>';
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>';
+                        }
 
                     }
                 echo '</div>';

@@ -20,7 +20,7 @@
 						</li>
 						<li>
 							<form action='<?php echo INDEX_URL ?>?action=reporters_profile' method='post'>
-								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="reporters_profile"><i class="fa-solid fa-user-tie"></i> Reporters</button>
+								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="reporters_profile"><i class="fa-solid fa-user-tie"></i> Periodistes</button>
 							</form>
 						</li>
 						<li>

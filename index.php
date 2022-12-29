@@ -1,10 +1,10 @@
 <?php
 	define('MY_CMS', 'CMS');
 
-	require STATUS_404;
 	require './routes.php';
 	require './app/config/db.php';
 	require './app/config/sh_config.php';
+	require STATUS_404;
 
 	session_start();
 
@@ -94,6 +94,14 @@
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'saveprivate') {
 		require CTL_USER;
 		save_private($_POST['showEmail'], $_POST['showDob'], $_POST['showFullname'], $_POST['showBio'], $_POST['showSocial'], $_POST['sendNotifications']);
+
+	} elseif (isset($_GET['action']) && $_GET['action'] == 'categories') {
+        require CTL_POSTS;
+        categories();
+
+    } elseif (isset($_GET['action']) && $_GET['action'] == 'posts_category') {
+        require CTL_POSTS;
+        posts_category($_GET['id']);
 
 	} else { //Si no existe GET o POST -> muestra la pagina principal
 		require CTL_MAIN;

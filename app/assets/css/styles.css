@@ -14,3 +14,19 @@
 	line-height: 1.8em;
 	text-overflow: ellipsis;
 }
+
+.btn-gray {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.btn-outline-gray {
+    color: #f8f9fa;
+    background-color: transparent;
+    background-image: none;
+    border-color: #f8f9fa;
+}
+
+.border-gray {
+    border-color: #f8f9fa !important;
+}

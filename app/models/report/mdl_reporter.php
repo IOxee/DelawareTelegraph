@@ -1,7 +1,7 @@
 <?php
     defined('MY_CMS') or die('Permission denied');
 
-    function mdl_get_categories() {
+    function mdl_reporter_get_categories() {
         $stmt = db_query_fetchall('SELECT * FROM posts_categories');
         return $stmt;
     }

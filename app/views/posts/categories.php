@@ -13,6 +13,7 @@
 	<body>
 		<?php
 			defined('MY_CMS') or die('Permission denied');
+
 			if (isset($_SESSION['username'])) {
 				require_once NAVBAR_VIEW;
 				echo navbar();
@@ -21,23 +22,20 @@
 				 * Main Content
 				 */
 				echo '<div class="container-fluid">';
-                    if (isset($_GET['action']) && ($_GET['action'] == 'posts_category')) {
-                        echo '<a href="' . INDEX_URL . '?action=categories" class="btn btn-outline-dark btn-sm my-2 mx-auto">Tornar a la llista de categories</a>';
-                    }
 					echo '<img src="' . LOGO_POSTS . '" class="rounded mx-auto d-block col-3">';
-					foreach ($posts as $post) {
+					foreach ($categories as $category) {
 					echo '<div style="display: flex; flex-wrap: nowrap; justify-content: center; flex-direction: row" class="center">';
 						echo '<div class="card" style="width: 18rem; margin: 5px;">';
-							echo '<img src="' . $post['image'] . '" class="card-img-top" alt="...">';
-							echo '<div class="card-body">';
-								echo '<h5 class="card-title">' . $post['title'] . '</h5>';
-								echo '<p class="card-text max-lines">' . $post['content'] . '</p>';
-								echo '<p class="card-text"><i class="fas fa-user mx-2"></i><small class="text-muted">' . $post['author'] . '</small><i class="fas fa-clock mx-2"></i><small class="text-muted">' . $post['time'] . '</small></p>';
-								foreach ($post['tags'] as $tag) {
-									echo '<span class="badge bg-dark text-white mx-1">' . $tag . '</span>';
-								}
-								echo '<br/><a href="' . INDEX_URL . '?action=post&id=' . $post['id'] . '" class="btn btn-outline-dark my-2">Veure més</a>';
-							echo '</div>';
+                            if ($category['image'] != '' || $category['image'] != NULL) {
+                                echo '<img src="' . $category['image'] . '" class="card-img-top" alt="...">';
+                            } else {
+                                echo '<p class="card-img-top text-center mt-3">Imagen no disponible</p>';
+                            }
+                            echo '<div class="card-body">';
+                                echo '<h5 class="card-title">' . $category['name'] . '</h5>';
+                                echo '<p class="card-text max-lines" style="height:120px">' . $category['description'] . '</p>';
+                                echo '<a href="' . INDEX_URL . '?action=posts_category&id=' . $category['id'] . '" class="btn btn-outline-dark">Veure més</a>';
+                            echo '</div>';
 						echo '</div>';
 					}
 					echo '</div>';

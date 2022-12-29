@@ -25,6 +25,7 @@
 	define('POSTS_VIEW', './app/views/posts/posts.php');
 	define('POSTSDETAILS_VIEW', './app/views/posts/postsdetails.php');
 	define('EDIT_POST_VIEW', './app/views/posts/edit_post.php');
+    define('CATEGORIES_VIEW', './app/views/posts/categories.php');
 
 	// users
 	define('USERDETAILS_VIEW', './app/views/users/userdetails.php');
@@ -75,6 +76,7 @@
 	define('404_IMG', './app/assets/img/404.png');
 	define('BUSINESS_LOGO', './app/assets/img/business_logo.png');
 	define('REPORTERS_LOGO', './app/assets/img/reporters_logo.png');
+    define('CATEGORIES_LOGO', './app/assets/img/categories.png');
 
 	/**
 	 * Routes Video
@@ -99,3 +101,8 @@
 	 * Routes LIBS
 	 */
 	define('LIBS', './app/libs/');
+
+    /**
+     * Routes File System
+     */
+    define('FILE_SYSTEM', './app/files/');

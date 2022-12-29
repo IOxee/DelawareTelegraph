@@ -39,3 +39,13 @@
 		$stmt = db_query_fetchall('SELECT * FROM posts ORDER BY postID DESC');
 		return $stmt;
 	}
+
+    function mdl_get_categories() {
+        $stmt = db_query_fetchall('SELECT * FROM posts_categories');
+        return $stmt;
+    }
+
+    function mdl_get_posts_category($id) {
+        $stmt = db_query_fetchall('SELECT * FROM posts WHERE postCategory = ' . $id);
+        return $stmt;
+    }

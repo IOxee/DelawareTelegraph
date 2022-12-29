@@ -88,7 +88,6 @@
 			);
 		}
 
-		// generate PDF
 		include_once LIBS . 'tcpdf/tcpdf.php';
 		$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -122,3 +121,43 @@
 		$pdf -> lastPage();
 		$pdf -> Output('post ' . $id . ' - ' . $posts[$id]['author'] . '.pdf', 'D');
 	}
+
+    function categories() {
+        $stmt = mdl_get_categories();
+        $categories = array();
+
+        foreach ($stmt as $row) {
+            $categories[] = array(
+                'id' => $row['id'],
+                'name' => $row['name'],
+                'description' => $row['description'],
+                'image' => $row['image']
+            );
+        }
+
+        include CATEGORIES_VIEW;
+    }
+
+    function posts_category($id) {
+        $stmt = mdl_get_posts_category($id);
+        $posts = array();
+        $tags = array();
+
+        foreach ($stmt as $row) {
+            if ($row['postCategory'] == $id) {
+                $tags = explode(',', $row['postTag']);
+
+                $posts[] = array(
+                    'id' => $row['postID'],
+                    'title' => $row['postTitle'],
+                    'content' => $row['postDesc'],
+                    'time' => $row['postTime'],
+                    'tags' => $tags,
+                    'author' => $row['postAuthor'],
+                    'image' => $row['postHeaderIMG']
+                );
+            }
+        }
+
+        include POSTS_VIEW;
+    }

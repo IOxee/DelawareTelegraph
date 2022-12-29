@@ -59,3 +59,29 @@
             echo "Error al eliminar el usuario";
         }
     }
+
+    function get_files() {
+        $dir = FILE_SYSTEM;
+        $files = scandir($dir);
+        $files = array_diff($files, array('.', '..'));
+        $files = array_values($files);
+        return $files;
+    }
+
+    function get_file($file) {
+        $dir = FILE_SYSTEM;
+        $file = $dir . $file;
+        $file = file_get_contents($file);
+        return $file;
+    }
+
+    function delete_file($file) {
+        $dir = FILE_SYSTEM;
+        $file = $dir . $file;
+        $stmt = unlink($file);
+        if ($stmt) {
+            header("Location: " . INDEX_URL . "?action=apanel&integrations&filesystem");
+        } else {
+            echo "Error al eliminar el archivo";
+        }
+    }

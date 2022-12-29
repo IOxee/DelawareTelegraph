@@ -9,7 +9,7 @@
 
     function reporter_panel() {
         $stmt = get_users();
-        $stmt_categories = mdl_get_categories();
+        $stmt_categories = mdl_reporter_get_categories();
 
         foreach ($stmt as $row) {
             $users[] = array(
