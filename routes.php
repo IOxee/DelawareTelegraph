@@ -108,3 +108,12 @@
     define('FILE_SYSTEM', './app/fileSystem/');
     define('APP_ROOT', './app/');
     define('APP_UPLOADS', './app/fileSystem/uploads/');
+
+    /**
+     * Routes Translations
+     */
+    define('TRANSLATIONS', './app/translations/');
+    define('TRANSLATION_ES_PATH', './app/translations/es_translation.php');
+    define('TRANSLATION_GB_PATH', './app/translations/gb_translation.php');
+    define('TRANSLATION_CAT_PATH', './app/translations/cat_translation.php');
+    define('TRANSLATION_FR_PATH', './app/translations/fr_translation.php');

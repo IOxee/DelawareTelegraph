@@ -49,3 +49,17 @@
         $stmt = db_query_fetchall('SELECT * FROM posts WHERE postCategory = ' . $id);
         return $stmt;
     }
+
+    function mdl_edit_category($id, $name, $description, $image) {
+        $stmt = db_query_prepare(
+            'UPDATE posts_categories SET name = ?, description = ?, image = ? WHERE id = ?',
+            array($name, $description, $image, $id),
+            'sssi'
+        );
+        return $stmt;
+    }
+
+    function mdl_delete_category($id) {
+        $stmt = db_query_delete('DELETE FROM posts_categories WHERE id = ?', $id, 'i');
+        return $stmt;
+    }

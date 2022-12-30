@@ -30,6 +30,10 @@
             $all_posts = get_posts();
         }
 
+        if (isset($_GET['categories'])) {
+            $all_categories = mdl_get_categories();
+        }
+
         include_once ADMIN_PANEL_VIEW;
     }
 

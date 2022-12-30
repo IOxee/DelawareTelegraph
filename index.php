@@ -4,6 +4,7 @@
 	require './routes.php';
 	require './app/config/db.php';
 	require './app/config/sh_config.php';
+    require './app/config/sh_translation.php';
 	require STATUS_404;
 
 	session_start();
@@ -119,6 +120,15 @@
     } elseif (isset($_GET['action']) && $_GET['action'] == 'posts_category') {
         require CTL_POSTS;
         posts_category($_GET['id']);
+
+    } elseif (isset($_GET['action']) && $_GET['action'] == 'posts_category_edit') {
+        require CTL_POSTS;
+        posts_category_edit($_GET['id'], $_POST['name'], $_POST['description'], $_POST['image']);
+
+    } elseif (isset($_GET['action']) && $_GET['action'] == 'posts_delete_category') {
+        require CTL_POSTS;
+        posts_category_delete($_GET['id']);
+
 
 	} else { //Si no existe GET o POST -> muestra la pagina principal
 		require CTL_MAIN;

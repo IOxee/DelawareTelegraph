@@ -161,3 +161,23 @@
 
         include POSTS_VIEW;
     }
+
+    function posts_category_edit($id, $name, $description, $image) {
+        $stmt = mdl_edit_category($id, $name, $description, $image);
+        if ($stmt) {
+            header('Location: '. INDEX_URL . '?action=categories');
+        } else {
+            echo 'Error al editar la categoria';
+            status_404();
+        }
+    }
+
+    function posts_category_delete($id) {
+        $stmt = mdl_delete_category($id);
+        if ($stmt) {
+            header('Location: '. INDEX_URL . '?action=categories');
+        } else {
+            echo 'Error al eliminar la categoria';
+            status_404();
+        }
+    }

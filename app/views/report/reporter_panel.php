@@ -71,7 +71,7 @@
                                                             echo '<h5 class="card-title">Crear Categoria</h5>';
                                                             echo '<p class="card-text">Crea una nueva categoria para tu blog</p>';
                                                             echo '<form action="' . INDEX_URL . '?action=reporter_panel&view&create_category=true" method="POST">';
-                                                                echo '<button type="submit" class="btn btn-outline-dark"><i class="fa-solid fa-trailer mx-2"></i>Crear</button>';
+                                                                echo '<button type="submit" class="btn btn-outline-dark"><i class="fa-solid fa-folder mx-2"></i>Crear</button>';
                                                             echo '</form>';
                                                         echo '</div>';
                                                     echo '</div>';

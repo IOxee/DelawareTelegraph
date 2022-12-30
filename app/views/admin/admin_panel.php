@@ -55,6 +55,14 @@
                                 echo '</li>';
 
                                 echo '<li class="nav-item my-2">';
+                                    echo '<form action="' . INDEX_URL .  '?action=apanel&categories" method="post">';
+                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_categories">';
+                                            echo '<span class="ml-2"><i class="fa-solid fa-folder mr-2"></i>Categories</span>';
+                                        echo '</button>';
+                                    echo '</form>';
+                                echo '</li>';
+
+                                echo '<li class="nav-item my-2">';
                                     echo '<form action="' . INDEX_URL . '?action=apanel&admins" method="post">';
                                         echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_admins">';
                                             echo '<span class="ml-2"><i class="fa-solid fa-users mr-2"></i>Administradors</span>';
@@ -278,6 +286,83 @@
                                 echo '</div>';
                             echo '</div>';
                         echo '</div>';
+                    }
+
+                    if (isset($_GET['categories'])) {
+                        echo '<nav aria-label="breadcrumb">';
+                            echo '<ol class="breadcrumb mb-4">';
+                                echo '<li class="breadcrumb-item" href="' . INDEX_URL .'?action=apanel&dashboard">Home</li>';
+                                echo '<li class="breadcrumb-item active" aria-current="page">Categories</li>';
+                            echo '</ol>';
+                        echo '</nav>';
+
+                        echo '<div class="row">';
+                            echo '<div class="col-12 col-xl-12 mb-4 mb-lg-0">';
+                                echo '<div class="card">';
+                                    echo '<h5 class="card-header">Categories</h5>';
+                                    echo '<div class="card-body">';
+                                        echo '<div class="table-responsive">';
+                                            echo '<table class="table">';
+                                                echo '<thead>';
+                                                echo '<tr>';
+                                                    echo '<th scope="col">ID</th>';
+                                                    echo '<th scope="col">Nom</th>';
+                                                    echo '<th scope="col">Descripció</th>';
+                                                    echo '<th scope="col">Accions</th>';
+                                                echo '</tr>';
+                                                echo '</thead>';
+                                                echo '<tbody>';
+                                                    for ($i = 0; $i < count($all_categories); $i++) {
+                                                        echo '<tr>';
+                                                            echo '<th scope="row">' . $all_categories[$i]['id'] . '</th>';
+                                                            echo '<td>' . $all_categories[$i]['name'] . '</td>';
+                                                            echo '<td style="text-align:justify">' . $all_categories[$i]['description'] . '</td>';
+                                                            echo '<td>';
+                                                                echo '<a href="'. INDEX_URL . '?action=posts_category&id=' . $all_categories[$i]['id'] . '" class="btn btn-sm btn-outline-primary mx-2">Veure</a>';
+                                                                echo '<a href="'. INDEX_URL . '?action=apanel&categories&editcategory&id=' . $all_categories[$i]['id'] . '&editcategory=true" class="btn btn-sm btn-outline-dark mx-2">Editar</a>';
+                                                                echo '<a href="'. INDEX_URL . '?action=posts_delete_category&id=' . $all_categories[$i]['id'] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
+                                                            echo '</td>';
+                                                        echo '</tr>';
+                                                    }
+                                                echo '</tbody>';
+                                            echo '</table>';
+                                        echo '</div>';
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</div>';
+
+                        if (isset($_GET['editcategory'])) {
+                            foreach ($all_categories as $category) {
+                                if ($category['id'] == $_GET['id']) {
+                                    echo '<div class="row mt-3">';
+                                        echo '<div class="col-12 col-xl-12 mb-4 mb-lg-0">';
+                                            echo '<div class="card">';
+                                                echo '<h5 class="card-header">Editar categoria</h5>';
+                                                echo '<div class="card-body">';
+                                                    echo '<form action="' . INDEX_URL . '?action=posts_category_edit" method="POST" enctype="multipart/form-data">';
+                                                        echo '<div class="form-group mt-3">';
+                                                            echo '<label for="name">Nom</label>';
+                                                            echo '<input type="text" class="form-control" id="name" name="name" value="' . $category['name'] . '">';
+                                                        echo '</div>';
+                                                        echo '<div class="form-group mt-3">';
+                                                            echo '<label for="image">Imatge</label>';
+                                                            echo '<input type="text" class="form-control" id="image" name="image" value="' . $category['image'] . '">';
+                                                        echo '</div>';
+                                                        echo '<div class="form-group mt-3">';
+                                                            echo '<label for="description">Descripció</label>';
+                                                            echo '<textarea class="form-control" id="description" name="description" rows="3">' . $category['description'] . '</textarea>';
+                                                        echo '</div>';
+                                                        echo '<input type="hidden" name="id" value="' . $category['id'] . '">';
+                                                        echo '<button type="submit" class="btn btn-outline-dark mt-3" name="editcategory">Editar</button>';
+                                                    echo '</form>';
+                                                echo '</div>';
+                                            echo '</div>';
+                                        echo '</div>';
+                                    echo '</div>';
+                                }
+                            }
+                        }
                     }
 
                     if (isset($_GET['admins'])) {
