@@ -18,11 +18,11 @@
         return $stmt;
     }
 
-    function mdl_create_category($name, $description) {
+    function mdl_create_category($name, $description, $image) {
         $stmt = db_query_prepare(
-            'INSERT INTO posts_categories (name, description) VALUES (?, ?)',
-            array($name, $description),
-            'ss'
+            'INSERT INTO posts_categories (name, description, image) VALUES (?, ?, ?)',
+            array($name, $description, $image),
+            'sss'
         );
         return $stmt;
     }

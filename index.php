@@ -67,11 +67,12 @@
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['create_category'])) {
 		require CTL_REPORTER;
-		create_category($_POST['category_name'], $_POST['description']);
+		create_category($_POST['category_name'], $_POST['description'], $_POST['image']);
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporters_profile') {
 		require CTL_REPORTER;
 		reporters_profile();
+
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel') {
 		require CTL_ADMINS;
@@ -90,6 +91,25 @@
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel' && isset($_GET['deleteuser'])) {
 		require CTL_ADMINS;
 		delete_user($_GET['id']);
+
+    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_download' && isset($_GET['dir']) && isset($_GET['file'])) {
+        require CTL_ADMINS;
+        download_file($_GET['dir'], $_GET['file']);
+
+    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_fs_delete' && isset($_GET['file'])) {
+        require CTL_ADMINS;
+        delete_file($_GET['dir'], $_GET['file']);
+
+    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_fs_delete_folder') {
+        require CTL_ADMINS;
+        delete_folder($_GET['dir'], $_GET['folder']);
+
+    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_fs_download_folder') {
+        require CTL_ADMINS;
+        download_folder($_GET['dir'], $_GET['folder']);
+
+
+
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'saveprivate') {
 		require CTL_USER;

@@ -385,26 +385,35 @@
                                                                             if (filetype(FILE_SYSTEM . $files[$i]) == 'dir') {
                                                                                 $files_inside = scandir(FILE_SYSTEM . $files[$i]);
                                                                                 if (count($files_inside) > 2) {
-                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Veure</a>';
-                                                                                } else {
-                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2" disabled>Veure</a>';
+                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $files[$i] . '" class="btn btn-sm btn-outline-primary mx-2">Veure</a>';
                                                                                 }
                                                                             }
                                                                         } else {
                                                                             if (filetype(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i]) == 'dir') {
                                                                                 $files_inside = scandir(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i]);
                                                                                 if (count($files_inside) > 2) {
-                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $_GET['dir'] . '/' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Veure</a>';
-                                                                                } else {
-                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $_GET['dir'] . '/' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2" disabled>Veure</a>';
+                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $_GET['dir'] . '/' . $files[$i] . '" class="btn btn-sm btn-outline-primary mx-2">Veure</a>';
                                                                                 }
                                                                             }
                                                                         }
 
                                                                         if (!is_dir(FILE_SYSTEM . $files[$i])) {
-                                                                            echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&download=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
+                                                                            if (!isset($_GET['dir'])) {
+                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_download&dir=main&file=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
+                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_delete&dir=main&file=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
+                                                                            } else {
+                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_download&dir=' . $_GET['dir'] . '&file=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
+                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_delete&dir=' . $_GET['dir'] . '&file=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
+                                                                            }
+                                                                        } else {
+                                                                            if (!isset($_GET['dir'])) {
+                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_delete_folder&dir=main&folder=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
+                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_download_folder&dir=main&folder=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
+                                                                            } else {
+                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_delete_folder&dir=' . $_GET['dir'] . '&folder=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
+                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_download_folder&dir=' . $_GET['dir'] . '&folder=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
+                                                                            }
                                                                         }
-                                                                        echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&delete=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
                                                                     echo '</td>';
                                                                 echo '</tr>';
                                                             }
@@ -419,52 +428,6 @@
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
-
-                            if (isset($_GET['download'])) {
-                                if (!isset($_GET['dir'])) {
-                                    $file = FILE_SYSTEM . $_GET['download'];
-                                } else {
-                                    $file = FILE_SYSTEM . $_GET['dir'] . '/' . $_GET['download'];
-                                }
-                                if (file_exists($file)) {
-                                    $zip = new ZipArchive();
-                                    $file_name = explode('.', $_GET['download']);
-                                    $zip_name = APP_UPLOADS . $file_name[0] . '_' . date("d_m_Y_H_i_s") . ".zip";
-                                    if ($zip -> open($zip_name, ZIPARCHIVE::CREATE) !== TRUE) {
-                                        $error .= "* Sorry ZIP creation failed at this time";
-                                    }
-                                    $zip->addFile($file, $_GET['download']);
-                                    $zip->close();
-                                }
-                                // Tinc problemes amb els headers. Aixi que la solucio podria ser generar un zip i deixarlo a la arrel del projecte.
-                                echo '<div class="alert alert-success mt-3 text-center" role="alert">
-                                        <h4 class="alert-heading">Descarregant arxiu</h4>
-                                        <p>El arxiu es descarregara com a ZIP y es guardara a la carpeta UPLOADS del projecte</p>
-                                        <div class="spinner-border" role="status">
-                                            <span class="visually-hidden">---</span>
-                                        </div>
-                                        <hr>
-                                        <p class="mb-0">Si no s\'inicia la descàrrega, <a href="' . INDEX_URL . '?action=apanel&integrations&filesystem&download=' . $_GET['download'] . '">clica aquí</a></p>
-                                    </div>';
-                                exit;
-                            }
-
-                            if (isset($_GET['delete'])) {
-                                if (!isset($_GET['dir'])) {
-                                    $file = FILE_SYSTEM . $_GET['delete'];
-                                } else {
-                                    $file = FILE_SYSTEM . $_GET['dir'] . '/' . $_GET['delete'];
-                                }
-                                if (file_exists($file)) {
-                                    // borralo
-                                    if (is_dir($file)) {
-                                        rmdir($file);
-                                    } else {
-                                        unlink($file);
-                                    }
-                                    echo '<script>window.location.href = "' . INDEX_URL . '?action=apanel&integrations&filesystem";</script>';
-                                }
-                            }
                         } else {
                             echo '<div class="row">';
                                 echo '<div class="col-12 col-xl-12 mb-4 mb-lg-0">';

@@ -134,6 +134,11 @@
                                     echo '</div>';
 
                                     echo '<div class="mb-3">';
+                                        echo '<label for="image" class="form-label">Imatge</label>';
+                                        echo '<input class="form-control" type="text" id="image" name="image" placeholder="https://i.imgur.com/xxxxx">';
+                                    echo '</div>';
+
+                                    echo '<div class="mb-3">';
                                         echo '<label for="description" class="form-label">Descripció</label>';
                                         echo '<textarea class="form-control" id="description" name="description" rows="3"></textarea>';
                                     echo '</div>';

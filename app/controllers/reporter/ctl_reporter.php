@@ -44,8 +44,8 @@
         }
     }
 
-    function create_category($name, $description) {
-        $stmt = mdl_create_category($name, $description);
+    function create_category($name, $description, $image) {
+        $stmt = mdl_create_category($name, $description, $image);
         if ($stmt) {
             header('Location: '. INDEX_URL . '?action=reporter_panel&view');
         } else {
