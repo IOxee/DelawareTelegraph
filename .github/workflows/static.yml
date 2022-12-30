@@ -46,4 +46,4 @@ jobs:
         uses: nanasess/setup-php@v3.3.2
         with:
           # Version Spec of the version to use.  Examples: 7.1
-          php-version: 8.2
+          php-version: 8.1
