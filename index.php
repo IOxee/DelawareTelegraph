@@ -108,9 +108,6 @@
         require CTL_ADMINS;
         download_folder($_GET['dir'], $_GET['folder']);
 
-
-
-
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'saveprivate') {
 		require CTL_USER;
 		save_private($_POST['showEmail'], $_POST['showDob'], $_POST['showFullname'], $_POST['showBio'], $_POST['showSocial'], $_POST['sendNotifications']);
