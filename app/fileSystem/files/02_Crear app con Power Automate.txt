@@ -1,0 +1,14 @@
+Quiero usar power automate para hacer una app donde mi cliente entre y a traves de peticiones y permisos puede visualizar en una misma carpeta todos los archivos que tenga en diferentes servicios de las carpetas elegidas. Alguna idea de como hacerlo?
+Sí, se puede hacer lo que describiste utilizando Microsoft Power Automate.
+
+Aquí te presento una posible solución, que puedes adaptar según tus necesidades y recursos disponibles:
+
+Primero, debes crear un flujo (flow) en Power Automate que se active cada vez que se reciba una petición de tu cliente para ver los archivos. Puedes usar una solicitud HTTP como desencadenador para este flujo.
+
+Luego, debes añadir una acción que te permita obtener el acceso a las diferentes carpetas y servicios de archivos donde tu cliente tiene sus documentos. Para ello, puedes utilizar los conectores de Power Automate que se integran con diferentes servicios de almacenamiento de archivos, como OneDrive, Google Drive, Dropbox, etc.
+
+Una vez que tienes acceso a las carpetas y servicios de archivos de tu cliente, debes añadir una acción para buscar y recopilar todos los archivos que se encuentran en las carpetas elegidas por tu cliente. Puedes usar el conector de búsqueda de archivos de Power Automate para hacer esto.
+
+Finalmente, debes añadir una acción para enviar un correo electrónico a tu cliente con un enlace a una carpeta en la que se encuentran todos los archivos recopilados. Para ello, puedes usar el conector de correo electrónico de Power Automate.
+
+Espero que esta información te sea de ayuda. Si tienes más preguntas o necesitas más detalles sobre cómo implementar esta solución con Power Automate, no dudes en preguntar.

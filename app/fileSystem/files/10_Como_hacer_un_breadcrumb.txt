@@ -1,0 +1,32 @@
+Quiero un breadcrumb estilo windows para hacer yo cosas con un path en js
+
+Aquí hay un ejemplo de un breadcrumb de estilo Windows para JavaScript:
+
+<script>
+//Definir el separador de rutas
+const separador = '\\';
+
+//Función para extraer la ruta desde una url
+function extraerRuta(url) {
+let ruta = url.split(separador);
+return ruta;
+}
+
+//Función para construir el breadcrumb
+function construirBreadcrumb(url) {
+  let ruta = extraerRuta(url);
+  let breadcrumb = '<span>Home</span>';
+  ruta.forEach(rutaPart=> {
+    if(rutaPart !== 'Home') {
+      breadcrumb += `${separador}<span>${rutaPart}</span>`;
+    }
+  });
+  return breadcrumb;
+}
+
+//Ejemplo de uso
+let url = 'C:\\Users\\John\\Documents';
+let breadcrumb = construirBreadcrumb(url);
+console.log(breadcrumb);
+//Imprime: <span>Home</span>\ <span>Users</span>\ <span>John</span>\ <span>Documents</span>
+</script>
