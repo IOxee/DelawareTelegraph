@@ -1,3 +1,7 @@
+<?php
+    defined('MY_CMS') or die('Permission denied');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,7 +16,6 @@
 	</head>
 	<body>
 		<?php
-            defined('MY_CMS') or die('Permission denied');
 			if (isset($_SESSION['username'])) {
 				require_once NAVBAR_VIEW;
 				echo navbar();

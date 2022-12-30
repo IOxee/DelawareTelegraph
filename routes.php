@@ -105,4 +105,6 @@
     /**
      * Routes File System
      */
-    define('FILE_SYSTEM', './app/files/');
+    define('FILE_SYSTEM', './app/fileSystem/');
+    define('APP_ROOT', './app/');
+    define('APP_UPLOADS', './app/fileSystem/uploads/');

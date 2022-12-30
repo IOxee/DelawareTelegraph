@@ -1,3 +1,5 @@
-# ignore My-CMS/.vscode
+.vscode
+.gitignore
 
-My-CMS/.vscode
+*.zip
+uploads/*.zip

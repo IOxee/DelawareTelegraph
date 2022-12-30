@@ -1,3 +1,6 @@
+<?php
+    defined('MY_CMS') or die('Permission denied');
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,7 +15,6 @@
 	</head>
 	<body>
 		<?php
-			defined('MY_CMS') or die('Permission denied');
 			include_once NAVBAR_VIEW;
 			include_once HEADER_VIEW;
 			echo navbar();

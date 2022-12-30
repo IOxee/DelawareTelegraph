@@ -1,4 +1,6 @@
-
+<?php
+    defined('MY_CMS') or die('Permission denied');
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,8 +18,6 @@
     </head>
     <body>
         <?php
-            defined('MY_CMS') or die('Permission denied');
-
             include_once NAVBAR_VIEW;
             echo navbar();
 
@@ -428,13 +428,25 @@
                                 }
                                 if (file_exists($file)) {
                                     $zip = new ZipArchive();
-                                    $zip_name = "download.zip";
+                                    $file_name = explode('.', $_GET['download']);
+                                    $zip_name = APP_UPLOADS . $file_name[0] . '_' . date("d_m_Y_H_i_s") . ".zip";
                                     if ($zip -> open($zip_name, ZIPARCHIVE::CREATE) !== TRUE) {
                                         $error .= "* Sorry ZIP creation failed at this time";
                                     }
                                     $zip->addFile($file, $_GET['download']);
                                     $zip->close();
                                 }
+                                // Tinc problemes amb els headers. Aixi que la solucio podria ser generar un zip i deixarlo a la arrel del projecte.
+                                echo '<div class="alert alert-success mt-3 text-center" role="alert">
+                                        <h4 class="alert-heading">Descarregant arxiu</h4>
+                                        <p>El arxiu es descarregara com a ZIP y es guardara a la carpeta UPLOADS del projecte</p>
+                                        <div class="spinner-border" role="status">
+                                            <span class="visually-hidden">---</span>
+                                        </div>
+                                        <hr>
+                                        <p class="mb-0">Si no s\'inicia la descàrrega, <a href="' . INDEX_URL . '?action=apanel&integrations&filesystem&download=' . $_GET['download'] . '">clica aquí</a></p>
+                                    </div>';
+                                exit;
                             }
 
                             if (isset($_GET['delete'])) {
