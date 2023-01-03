@@ -273,7 +273,6 @@
                                                             echo '<td>' . $all_posts[$i]['postTime'] . '</td>';
                                                             echo '<td>';
                                                                 echo '<a href="'. INDEX_URL . '?action=post&id=' . $all_posts[$i]['postID'] . '" class="btn btn-sm btn-outline-primary mr-2">Veure</a>';
-                                                                echo '<a href="'. INDEX_URL . '?action=pdf&id=' . $all_posts[$i]['postID'] . '" class="btn btn-sm btn-outline-success mx-2">Descarregar</a>';
                                                                 echo '<a href="'. INDEX_URL . '?action=post&id=' . $all_posts[$i]['postID'] . '&editpost=true" class="btn btn-sm btn-outline-dark mx-2">Editar</a>';
                                                                 echo '<a href="'. INDEX_URL . '?action=deletepost&id=' . $all_posts[$i]['postID'] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
                                                             echo '</td>';

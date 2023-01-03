@@ -35,3 +35,9 @@ El código del proyecto incluye archivos PHP, así como archivos de configuraci�
 # PLUGINS
 [TCPPDF](https://github.com/tcpdf/tcpdf) (PHP class for generating PDF documents and barcodes) <br/>
 [Simple File Manager]() (PHP file manager WIP)
+
+# BRANCHES
+[main](https://github.com/IOxee/My-CMS/tree/main) (The main branch) <br/>
+[dev](https://github.com/IOxee/My-CMS/tree/develop) (The development branch, without PDF generator and FS Explorer) <br/>
+[TCPDF](https://github.com/IOxee/My-CMS/tree/TCPDF) (The TCPDF branch, with TCPDF plugin) <br/>
+[CMS](https://github.com/IOxee/My-CMS/tree/CMS) (The CMS branch with FS Explorer plugin and without TCPDF plugin) <br/>

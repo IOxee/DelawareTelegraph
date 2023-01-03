@@ -69,59 +69,6 @@
 
 	}
 
-	function ctl_posts_by_id_pdf($id) {
-		$stmt = mdl_get_posts_by_id($id);
-		$posts = array();
-		$tags = array();
-
-		foreach ($stmt as $row) {
-			$tags = explode(',', $row['postTag']);
-
-			$posts[$id] = array(
-				'id' => $row['postID'],
-				'title' => $row['postTitle'],
-				'content' => $row['postDesc'],
-				'time' => $row['postTime'],
-				'tags' => $tags,
-				'author' => $row['postAuthor'],
-				'header_image' => $row['postHeaderIMG']
-			);
-		}
-
-		include_once LIBS . 'tcpdf/tcpdf.php';
-		$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-
-
-		$pdf -> SetCreator($posts[$id]['author']);
-		$pdf -> SetAuthor($posts[$id]['author']);
-		$pdf -> SetTitle('post ' . $id . ' - ' . $posts[$id]['author']);
-
-		$pdf -> SetHeaderData('', 20, 'The Daily Telegraph', 'Data i Hora: ' . $posts[$id]['time'] . ' | Autor: ' . $posts[$id]['author']);
-
-		$pdf -> setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-		$pdf -> setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-
-		$pdf -> SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-		$pdf -> SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-		$pdf -> SetHeaderMargin(PDF_MARGIN_HEADER);
-
-		$pdf -> SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-
-		$pdf -> setImageScale(PDF_IMAGE_SCALE_RATIO);
-
-		$pdf -> SetFont('helvetica', '', 10);
-
-		$pdf -> AddPage();
-
-		$html = '<h1>' . $posts[$id]['title'] . '</h1>';
-		$html .= '<p>' . $posts[$id]['content'] . '</p>';
-		$html .= '<img src="' . $posts[$id]['header_image'] . '" alt="Post Image" width=auto height=auto>';
-
-		$pdf -> writeHTML($html, true, false, true, false, '');
-		$pdf -> lastPage();
-		$pdf -> Output('post ' . $id . ' - ' . $posts[$id]['author'] . '.pdf', 'D');
-	}
-
     function categories() {
         $stmt = mdl_get_categories();
         $categories = array();
