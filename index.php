@@ -53,11 +53,6 @@
 		require CTL_POSTS;
 		edit_post($_GET['id'], $_POST['title'], $_POST['content'], $_POST['image'], $_POST['tags']);
 
-	} elseif (isset($_GET['action']) && $_GET['action'] == 'pdf' && isset($_GET['id'])) {
-		require CTL_POSTS;
-		ctl_posts_by_id_pdf($_GET['id']);
-
-
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporter_panel' && isset($_GET['view'])) {
 		require CTL_REPORTER;
 		reporter_panel();
@@ -73,7 +68,6 @@
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'reporters_profile') {
 		require CTL_REPORTER;
 		reporters_profile();
-
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel') {
 		require CTL_ADMINS;
@@ -92,22 +86,6 @@
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'apanel' && isset($_GET['deleteuser'])) {
 		require CTL_ADMINS;
 		delete_user($_GET['id']);
-
-    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_download' && isset($_GET['dir']) && isset($_GET['file'])) {
-        require CTL_ADMINS;
-        download_file($_GET['dir'], $_GET['file']);
-
-    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_fs_delete' && isset($_GET['file'])) {
-        require CTL_ADMINS;
-        delete_file($_GET['dir'], $_GET['file']);
-
-    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_fs_delete_folder') {
-        require CTL_ADMINS;
-        delete_folder($_GET['dir'], $_GET['folder']);
-
-    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_fs_download_folder') {
-        require CTL_ADMINS;
-        download_folder($_GET['dir'], $_GET['folder']);
 
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'saveprivate') {
 		require CTL_USER;
@@ -128,7 +106,6 @@
     } elseif (isset($_GET['action']) && $_GET['action'] == 'posts_delete_category') {
         require CTL_POSTS;
         posts_category_delete($_GET['id']);
-
 
 	} else { //Si no existe GET o POST -> muestra la pagina principal
 		require CTL_MAIN;

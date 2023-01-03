@@ -66,13 +66,3 @@
 		db_disconnect($db_conn, $stmt);
 	}
 
-	function update_private($username, $show_mail, $show_dob, $show_fullname, $show_bio, $show_social, $send_notifications) {
-
-		$sql = "UPDATE users SET show_mail = ?, show_dob = ?, show_fullname = ?, show_bio = ?, show_social = ?, send_notifications = ? WHERE nick = ?";
-		$data = array($show_mail, $show_dob, $show_fullname, $show_bio, $show_social, $send_notifications, $username);
-		$type = "iiiiiis";
-
-		$stmt = db_query_prepare($sql, $data, $type);
-
-		return $stmt;
-	}
