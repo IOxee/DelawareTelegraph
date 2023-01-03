@@ -33,5 +33,5 @@ El código del proyecto incluye archivos PHP, así como archivos de configuraci�
 
 
 # PLUGINS
-[TCPPDF](https://github.com/tcpdf/tcpdf) (PHP class for generating PDF documents and barcodes)
+[TCPPDF](https://github.com/tcpdf/tcpdf) (PHP class for generating PDF documents and barcodes) <br/>
 [Simple File Manager]() (PHP file manager WIP)
