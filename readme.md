@@ -30,3 +30,8 @@ El código del proyecto incluye archivos PHP, así como archivos de configuraci�
 
 # GALLERY
 [Imgur: The magic of the Internet](https://imgur.com/a/XYzjc0e)
+
+
+# PLUGINS
+[TCPPDF](https://github.com/tcpdf/tcpdf) (PHP class for generating PDF documents and barcodes)
+[Simple File Manager]() (PHP file manager WIP)
