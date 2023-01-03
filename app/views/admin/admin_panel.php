@@ -426,106 +426,17 @@
                             echo '</ol>';
                         echo '</nav>';
 
-                        if (isset($_GET['filesystem'])) {
-                            echo '<div class="row">';
-                                echo '<div class="col-12 col-xl-12 mb-4 mb-lg-0">';
-                                    echo '<div class="card">';
-                                        echo '<h5 class="card-header">CMS Local</h5>';
-                                        echo '<div class="card-body">';
-                                            echo '<div class="table-responsive">';
-                                                echo '<table class="table">';
-                                                    echo '<thead>';
-                                                    echo '<tr>';
-                                                        echo '<th scope="col">ID</th>';
-                                                        echo '<th scope="col">Nom</th>';
-                                                        echo '<th scope="col">Data de modificació</th>';
-                                                        echo '<th scope="col">Pes</th>';
-                                                        echo '<th scope="col">Accions</th>';
-                                                    echo '</tr>';
-                                                    echo '</thead>';
-                                                    echo '<tbody>';
-                                                        if (isset($_GET['dir'])) {
-                                                            if (strpos($_GET['dir'], '..') !== false || strpos($_GET['dir'], '/') !== false || strpos($_GET['dir'], '\\') !== false || strpos($_GET['dir'], '.') !== false) {
-                                                                $files = scandir(FILE_SYSTEM);
-                                                            } else {
-                                                                $files = scandir(FILE_SYSTEM . $_GET['dir']);
-                                                            }
-                                                        } else {
-                                                            $files = scandir(FILE_SYSTEM);
-                                                        }
-                                                        for ($i = 0; $i < count($files); $i++) {
-                                                            if ($files[$i] != '.' && $files[$i] != '..') {
-                                                                echo '<tr>';
-                                                                    echo '<th scope="row">' . $i . '</th>';
-                                                                    echo '<td>' . $files[$i] . '</td>';
-                                                                    if (!isset($_GET['dir'])) {
-                                                                        echo '<td>' . date("d/m/Y H:i:s", filemtime(FILE_SYSTEM . $files[$i])) . '</td>';
-                                                                        echo '<td>' . filesize(FILE_SYSTEM . $files[$i]) . ' KB </td>';
-                                                                    } else {
-                                                                        echo '<td>' . date("d/m/Y H:i:s", filemtime(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i])) . '</td>';
-                                                                        echo '<td>' . filesize(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i]) . ' KB </td>';
-                                                                    }
-                                                                    echo '<td>';
-                                                                        if (!isset($_GET['dir'])) {
-                                                                            if (filetype(FILE_SYSTEM . $files[$i]) == 'dir') {
-                                                                                $files_inside = scandir(FILE_SYSTEM . $files[$i]);
-                                                                                if (count($files_inside) > 2) {
-                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $files[$i] . '" class="btn btn-sm btn-outline-primary mx-2">Veure</a>';
-                                                                                }
-                                                                            }
-                                                                        } else {
-                                                                            if (filetype(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i]) == 'dir') {
-                                                                                $files_inside = scandir(FILE_SYSTEM . $_GET['dir'] . '/' . $files[$i]);
-                                                                                if (count($files_inside) > 2) {
-                                                                                    echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem&dir=' . $_GET['dir'] . '/' . $files[$i] . '" class="btn btn-sm btn-outline-primary mx-2">Veure</a>';
-                                                                                }
-                                                                            }
-                                                                        }
 
-                                                                        if (!is_dir(FILE_SYSTEM . $files[$i])) {
-                                                                            if (!isset($_GET['dir'])) {
-                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_download&dir=main&file=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
-                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_delete&dir=main&file=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
-                                                                            } else {
-                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_download&dir=' . $_GET['dir'] . '&file=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
-                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_delete&dir=' . $_GET['dir'] . '&file=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
-                                                                            }
-                                                                        } else {
-                                                                            if (!isset($_GET['dir'])) {
-                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_delete_folder&dir=main&folder=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
-                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_download_folder&dir=main&folder=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
-                                                                            } else {
-                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_delete_folder&dir=' . $_GET['dir'] . '&folder=' . $files[$i] . '" class="btn btn-sm btn-outline-danger mx-2">Eliminar</a>';
-                                                                                echo '<a href="'. INDEX_URL . '?action=apanel_fs_download_folder&dir=' . $_GET['dir'] . '&folder=' . $files[$i] . '" class="btn btn-sm btn-outline-dark mx-2">Descarregar</a>';
-                                                                            }
-                                                                        }
-                                                                    echo '</td>';
-                                                                echo '</tr>';
-                                                            }
-                                                        }
-                                                        if (isset($_GET['dir'])) {
-                                                            echo '<td colspan="6"><a href="'. INDEX_URL . '?action=apanel&integrations&filesystem" class="btn btn-sm btn-outline-primary mx-2">Tornar enrere</a></td>';
-                                                        }
-                                                    echo '</tbody>';
-                                                echo '</table>';
-                                            echo '</div>';
-                                        echo '</div>';
+                        echo '<div class="row">';
+                            echo '<div class="col-12 col-xl-12 mb-4 mb-lg-0">';
+                                echo '<div class="card">';
+                                    echo '<h5 class="card-header">Usted no tiene plugins contratados</h5>';
+                                    echo '<div class="card-body">';
+                                        echo '<a href="https://github.com/IOxee/My-CMS/tree/CMS" target="_blank" class="btn btn-sm btn-outline-dark mx-2">Contratar plugins</a>';
                                     echo '</div>';
                                 echo '</div>';
                             echo '</div>';
-                        } else {
-                            echo '<div class="row">';
-                                echo '<div class="col-12 col-xl-12 mb-4 mb-lg-0">';
-                                    echo '<div class="card">';
-                                        echo '<h5 class="card-header">CMS Local</h5>';
-                                        echo '<div class="card-body">';
-                                            echo '<a href="'. INDEX_URL . '?action=apanel&integrations&filesystem" class="btn btn-sm btn-outline-dark mx-2">Veure fitxers</a>';
-                                        echo '</div>';
-                                    echo '</div>';
-                                echo '</div>';
-                            echo '</div>';
-                        }
-
+                        echo '</div>';
                     }
                 echo '</div>';
             echo '</div>';

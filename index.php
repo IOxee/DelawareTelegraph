@@ -93,22 +93,6 @@
 		require CTL_ADMINS;
 		delete_user($_GET['id']);
 
-    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_download' && isset($_GET['dir']) && isset($_GET['file'])) {
-        require CTL_ADMINS;
-        download_file($_GET['dir'], $_GET['file']);
-
-    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_fs_delete' && isset($_GET['file'])) {
-        require CTL_ADMINS;
-        delete_file($_GET['dir'], $_GET['file']);
-
-    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_fs_delete_folder') {
-        require CTL_ADMINS;
-        delete_folder($_GET['dir'], $_GET['folder']);
-
-    } elseif (isset($_GET['action']) && $_GET['action'] == 'apanel_fs_download_folder') {
-        require CTL_ADMINS;
-        download_folder($_GET['dir'], $_GET['folder']);
-
 	} elseif (isset($_GET['action']) && $_GET['action'] == 'saveprivate') {
 		require CTL_USER;
 		save_private($_POST['showEmail'], $_POST['showDob'], $_POST['showFullname'], $_POST['showBio'], $_POST['showSocial'], $_POST['sendNotifications']);
