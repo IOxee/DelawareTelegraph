@@ -4,7 +4,7 @@
     define('PROJECT_AUTHOR', 'Isidre Rosell Gallego');
     define('AUTHOR_URL', 'https://ioxee.github.io/');
 
-    define('WEBSITE_LANG', 'cat'); // Can be 'cat', 'es', 'en'
+    define('WEBSITE_LANG', 'es'); // Can be 'cat', 'es', 'en'
     include_once TRANSLATIONS;
 
 

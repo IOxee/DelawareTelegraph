@@ -105,7 +105,7 @@
 
 								echo '<div class="buttons text-center">';
 									if ($_SESSION['username'] == $user['username']) {
-										echo '<a href="' . INDEX_URL . '?action=profile&editprofile=true" class="btn btn-outline-dark px-4">'.USER_PROFILE_EDIT_PROFILE.'</a>';
+										echo '<a href="' . INDEX_URL . '?action=profile&editprofile=true" class="btn btn-outline-dark px-4"><i class="fas fa-pen"></i> '.USER_PROFILE_EDIT_PROFILE.'</a>';
 
 										if ($_SESSION['level'] >= 0 ) {
 											echo '<form action="index.php?action=profile&changepass=true" method="post">';
