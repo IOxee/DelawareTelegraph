@@ -23,8 +23,7 @@
 				/**
 				 * Main Content
 				 */
-				echo '<div class="container-fluid">';
-					echo '<img src="' . REPORTERS_LOGO . '" class="rounded mx-auto d-block col-3">';
+				echo '<div class="container-fluid mt-3">';
 					foreach ($reporters as $reporter) {
 					echo '<div style="display: flex; flex-wrap: nowrap; justify-content: center; flex-direction: row" class="center">';
 						echo '<div class="card" style="width: 18rem; margin: 5px;">';

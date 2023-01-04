@@ -6,7 +6,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My CMS</title>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="My CMS">
+        <meta name="author" content=<?php echo PROJECT_AUTHOR ?>>
+        <title>My CMS - Manager</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 
@@ -28,63 +31,68 @@
                 echo '<div class="row">';
                     echo '<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">';
                         echo '<div class="position-sticky">';
-                            echo '<ul class="nav flex-column ml-3 mt-3 d-flex mx-auto" >';
-                                echo '<li class="nav-item my-2">';
-                                    echo '<form action="' . INDEX_URL .'?action=apanel&dashboard" method="post">';
-                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray" id="btn_dashboard">';
-                                            echo '<span class="ml-2"><i class="fa-solid fa-house mr-2"></i>'.DASHBOARD_BUTTON.'</span>';
-                                            echo '';
-                                        echo '</button>';
-                                    echo '</form>';
-                                echo '</li>';
+                            echo '<div class="sidebar-sticky">';
+                                echo '<div class="d-flex justify-content-center">';
+                                    echo '<img src="" alt="logo" class="img-fluid mb-3" style="width:100px">';
+                                echo '</div>';
+                                echo '<ul class="nav flex-column ml-3 mt-3 d-flex mx-auto" >';
+                                    echo '<li class="nav-item my-2">';
+                                        echo '<form action="' . INDEX_URL .'?action=apanel&dashboard" method="post">';
+                                            echo '<button type="submit" class="btn btn-outline-dark border border-gray" id="btn_dashboard">';
+                                                echo '<span class="ml-2"><i class="fa-solid fa-house mr-2"></i>'.DASHBOARD_BUTTON.'</span>';
+                                                echo '';
+                                            echo '</button>';
+                                        echo '</form>';
+                                    echo '</li>';
 
-                                echo '<li class="nav-item my-2">';
-                                    echo '<form action="' . INDEX_URL . '?action=apanel&users" method="post">';
-                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_users">';
-                                            echo '<span class="ml-2"><i class="fa-solid fa-user mr-2"></i>'.USERS_BUTTON.'</span>';
-                                        echo '</button>';
-                                    echo '</form>';
-                                echo '</li>';
+                                    echo '<li class="nav-item my-2">';
+                                        echo '<form action="' . INDEX_URL . '?action=apanel&users" method="post">';
+                                            echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_users">';
+                                                echo '<span class="ml-2"><i class="fa-solid fa-user mr-2"></i>'.USERS_BUTTON.'</span>';
+                                            echo '</button>';
+                                        echo '</form>';
+                                    echo '</li>';
 
-                                echo '<li class="nav-item my-2">';
-                                    echo '<form action="' . INDEX_URL . '?action=apanel&posts" method="post">';
-                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_posts">';
-                                            echo '<span class="ml-2"><i class="fa-solid fa-file mr-2"></i>'.POSTS_BUTTON.'</span>';
-                                        echo '</button>';
-                                    echo '</form>';
-                                echo '</li>';
+                                    echo '<li class="nav-item my-2">';
+                                        echo '<form action="' . INDEX_URL . '?action=apanel&posts" method="post">';
+                                            echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_posts">';
+                                                echo '<span class="ml-2"><i class="fa-solid fa-file mr-2"></i>'.POSTS_BUTTON.'</span>';
+                                            echo '</button>';
+                                        echo '</form>';
+                                    echo '</li>';
 
-                                echo '<li class="nav-item my-2">';
-                                    echo '<form action="' . INDEX_URL .  '?action=apanel&categories" method="post">';
-                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_categories">';
-                                            echo '<span class="ml-2"><i class="fa-solid fa-folder mr-2"></i>'.CATEGORIES_BUTTON.'</span>';
-                                        echo '</button>';
-                                    echo '</form>';
-                                echo '</li>';
+                                    echo '<li class="nav-item my-2">';
+                                        echo '<form action="' . INDEX_URL .  '?action=apanel&categories" method="post">';
+                                            echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_categories">';
+                                                echo '<span class="ml-2"><i class="fa-solid fa-folder mr-2"></i>'.CATEGORIES_BUTTON.'</span>';
+                                            echo '</button>';
+                                        echo '</form>';
+                                    echo '</li>';
 
-                                echo '<li class="nav-item my-2">';
-                                    echo '<form action="' . INDEX_URL . '?action=apanel&admins" method="post">';
-                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_admins">';
-                                            echo '<span class="ml-2"><i class="fa-solid fa-users mr-2"></i>'.ADMINS_BUTTON.'</span>';
-                                        echo '</button>';
-                                    echo '</form>';
-                                echo '</li>';
+                                    echo '<li class="nav-item my-2">';
+                                        echo '<form action="' . INDEX_URL . '?action=apanel&admins" method="post">';
+                                            echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_admins">';
+                                                echo '<span class="ml-2"><i class="fa-solid fa-users mr-2"></i>'.ADMINS_BUTTON.'</span>';
+                                            echo '</button>';
+                                        echo '</form>';
+                                    echo '</li>';
 
-                                echo '<li class="nav-item my-2">';
-                                    echo '<form action="' . INDEX_URL .'?action=apanel&integrations" method="post">';
-                                        echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_integrations">';
-                                            echo '<span class="ml-2"><i class="fa-solid fa-layer-group mr-2"></i>'.INTEGRATIONS_BUTTON.'</span>';
-                                        echo '</button>';
-                                echo '</li>';
+                                    echo '<li class="nav-item my-2">';
+                                        echo '<form action="' . INDEX_URL .'?action=apanel&integrations" method="post">';
+                                            echo '<button type="submit" class="btn btn-outline-dark border border-gray"  id="btn_integrations">';
+                                                echo '<span class="ml-2"><i class="fa-solid fa-layer-group mr-2"></i>'.INTEGRATIONS_BUTTON.'</span>';
+                                            echo '</button>';
+                                    echo '</li>';
 
-                            echo '<li class="nav-item fixed-bottom">';
-                                if (date("Y") == "2022") {
-                                    echo '<p class="ml-2 text-dark text-center">© ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
-                                } else {
-                                    echo '<p class="ml-2 text-dark text-center">© 2022 - ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
-                                }
-                            echo '</li>';
-                        echo '</ul>';
+                                    echo '<li class="nav-item fixed-bottom">';
+                                        if (date("Y") == "2022") {
+                                            echo '<p class="ml-2 text-dark text-center">© ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
+                                        } else {
+                                            echo '<p class="ml-2 text-dark text-center">© 2022 - ' . date("Y") . ' - <a href="' . AUTHOR_URL . '" target="_blank">' . PROJECT_AUTHOR .  '</a></p>';
+                                        }
+                                    echo '</li>';
+                                echo '</ul>';
+                            echo '</div>';
                     echo '</div>';
                 echo '</nav>';
 

@@ -269,7 +269,7 @@
         define('USER_DETAILS_TITLE', 'Perfil');
         define('USER_DETAILS_REPORTS_BUTTON', 'Tauler del reporter');
         define('USER_DETAILS_ADMIN_PANEL_BUTTON', 'Tauler d\'administrador');
-        define('USER_DETAILS_LOGOUT', 'Tancar sessio');
+        define('USER_DETAILS_LOGOUT', ' Tancar sessió');
 
         // USER PROFILE
         define('USER_PROFILE_LEVEL_10', 'Admin');

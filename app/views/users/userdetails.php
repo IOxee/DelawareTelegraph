@@ -33,7 +33,7 @@
         <form action='<?PHP echo INDEX_URL . '?action=logout' ?>' method="GET">
             <input type="hidden" name="action" value="logout">
             <button type="submit" class="btn btn-outline-dark w-100 p-1 my-2">
-                <i class="fa-solid fa-right-to-bracket"></i><?php echo USER_DETAILS_LOGOUT ?>
+                <i class="fa-solid fa-right-to-bracket"></i> <?php echo USER_DETAILS_LOGOUT ?>
             </button>
         </form>
 

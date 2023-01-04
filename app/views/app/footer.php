@@ -6,9 +6,9 @@
         echo '<footer class="navbar navbar-expand-lg navbar-light bg-light">';
             echo '<div class="container-fluid">';
                 echo '<div class="float-left">';
-                    echo '<img src="' . LOGO . '" alt="logo" class="img-fluid">';
+                    echo '<img src="' . LOGO . '" alt="logo" class="img-fluid" width="250">';
                 echo '</div>';
-                echo '<div class="text-center">';
+                echo '<div class="float-left text-center mr-3">';
                     if (date('Y') == 2022) {
                         echo '<p> &copy; '. date('Y') .' '. PROJECT_AUTHOR .'</p>';
                     } else if (date('Y') > 2022) {

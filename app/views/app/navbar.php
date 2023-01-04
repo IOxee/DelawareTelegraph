@@ -56,8 +56,6 @@
 								?>
 							</ul>
 						</li>
-
-
 						<li class="nav-item dropdown dropstart">
 							<?php
 								if (!isset($_SESSION['username'])) {

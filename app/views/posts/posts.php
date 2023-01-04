@@ -34,7 +34,10 @@
 							echo '<div class="card-body">';
 								echo '<h5 class="card-title">' . $post['title'] . '</h5>';
 								echo '<p class="card-text max-lines">' . $post['content'] . '</p>';
-								echo '<p class="card-text"><i class="fas fa-user mx-2"></i><small class="text-muted">' . $post['author'] . '</small><i class="fas fa-clock mx-2"></i><small class="text-muted">' . $post['time'] . '</small></p>';
+								echo '<p class="card-text">';
+                                    echo '<i class="fas fa-user mx-2"></i><small class="text-muted">' . $post['author'] . '</small>';
+                                    echo '<i class="fas fa-clock mx-2"></i><small class="text-muted">' . $post['time'] . '</small>';
+                                echo '</p>';
 								foreach ($post['tags'] as $tag) {
 									echo '<span class="badge bg-dark text-white mx-1">' . $tag . '</span>';
 								}
