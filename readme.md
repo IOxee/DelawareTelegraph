@@ -1,6 +1,8 @@
+<div align="center">
+    <img src="./app/assets/img/delaware_telegraph_background_white_icon.png" alt="Delaware Telegraph">
+</div>
 
-
-# MY CMS (The Daily Telegraph) (US/UK)
+# MY CMS (Delaware Telegraph) (US/UK)
 
 This project appears to be a custom content management system (CMS). According to the repository's description, it is a project written in PHP and uses a MySQL database to store and retrieve information. It also includes an administration panel that allows users to easily and quickly create and manage content.
 
@@ -14,7 +16,7 @@ The project code includes PHP files, as well as configuration and style (CSS) fi
 5. Access the CMS URL in your web browser. For example, if you have placed it in the root folder of your web server, go to http://localhost/cms and enjoy
 
 
-# MY CMS (The Daily Telegraph) (ESP)
+# MY CMS (Delaware Telegraph) (ESP)
 
 Este proyecto parece ser un sistema de gestión de contenido (CMS) personalizado. Según la descripción del repositorio, es un proyecto escrito en PHP y usa una base de datos MySQL para almacenar y recuperar información. También incluye un panel de administración que permite a los usuarios crear y administrar fácilmente el contenido.
 
