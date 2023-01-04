@@ -1,7 +1,7 @@
 <?php
     defined('MY_CMS') or die('Permission denied');
 
-    define('PROJECT_AUTHOR', 'Isidre Rosell Gallego');
+    define('PROJECT_AUTHOR', 'IOxee');
     define('AUTHOR_URL', 'https://ioxee.github.io/');
 
     define('WEBSITE_LANG', 'es'); // Can be 'cat', 'es', 'en'
