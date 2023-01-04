@@ -49,7 +49,6 @@ El código del proyecto incluye archivos PHP, así como archivos de configuraci�
 
 # DISCLAIMER
 😞🙏 This project is for educational purposes only. I am not responsible for any misuse or damage caused by this program. Use it at your own risk.
-At the moment only the Catalan translation file is available. sorry for the inconvenience
 
 # LICENSE
 [MIT License](https://mit-license.org/)
