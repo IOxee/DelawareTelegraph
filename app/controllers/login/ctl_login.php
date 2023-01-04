@@ -10,7 +10,7 @@
         	$password = trim($password);
 
 			if (empty($username) || empty($password)) {
-				echo 'No has introduit el nom d\'usuari o la contrasenya';
+				echo ERROR_EMPTY_FIELDS;
 			}
 
 			$result = mdl_check_user($username, $password);
@@ -24,12 +24,12 @@
 						$_SESSION['logged'] = true;
 						header('Location: ' . INDEX_URL . '?action=posts');
 					} else {
-						echo 'Contrasenya incorrecta';
+						echo ERROR_PASSWORD_INCORRECT;
 						header('Refresh: 1; URL=' . INDEX_URL);
 					}
 				} else {
-					echo 'No existeix aquest usuari';
-					status_toast('Error', 'No existeix aquest usuari');
+					echo ERROR_USER_NOT_FOUND;
+					status_toast('Error', ERROR_USER_NOT_FOUND);
 					header('Refresh: 1; URL=' . INDEX_URL);
 				}
 			}

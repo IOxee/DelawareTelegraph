@@ -36,11 +36,11 @@
 							echo '<div class="card-body">';
 								echo '<h5 class="card-title">' . $reporter['username'] . '</h5>';
 								echo '<p class="card-text max-lines">' . $reporter['bio'] . '</p>';
-								echo '<p class="card-text"><a href="mailto:' . $reporter['mail'] . '" class="btn btn-sm btn-outline-dark px-4 mb-3"><i class="fas fa-envelope mx-2"></i>Enviar Missatge</a></p>';
+								echo '<p class="card-text"><a href="mailto:' . $reporter['mail'] . '" class="btn btn-sm btn-outline-dark px-4 mb-3"><i class="fas fa-envelope mx-2"></i>'.REPORTERS_PROFILE_SEND_MAIL.'</a></p>';
                                 echo '<form action="' . INDEX_URL . '" method="get">';
                                     echo '<input type="hidden" name="action" value="profile_id">';
                                     echo '<input type="hidden" name="id" value="' . $reporter['id'] . '">';
-                                    echo '<button type="submit" class="btn btn-outline-dark">Veure el perfil</button>';
+                                    echo '<button type="submit" class="btn btn-outline-dark">'.REPORTERS_PROFILE_TITLE.'</button>';
 							echo '</div>';
 						echo '</div>';
 					}

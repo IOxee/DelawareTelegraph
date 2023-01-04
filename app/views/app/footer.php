@@ -17,9 +17,9 @@
                 echo '</div>';
                 echo '<div class="float-right">';
                     if (isset($_SESSION['username'])) {
-                        echo '<a href="'. INDEX_URL .'?action=posts" class="btn btn-outline-dark"><i class="fa-solid fa-house mx-2">Inici</i></a>';
+                        echo '<a href="'. INDEX_URL .'?action=posts" class="btn btn-outline-dark"><i class="fa-solid fa-house mx-2">'.FOOTER_BUTTON_GO_BACK.'</i></a>';
                     } else {
-                        echo '<a href="'. INDEX_URL .'" class="btn btn-outline-dark"><i class="fa-solid fa-house mx-2">Inici</i></a>';
+                        echo '<a href="'. INDEX_URL .'" class="btn btn-outline-dark"><i class="fa-solid fa-house mx-2">'.FOOTER_BUTTON_GO_BACK.'</i></a>';
                     }
                 echo '</div>';
             echo '</div>';

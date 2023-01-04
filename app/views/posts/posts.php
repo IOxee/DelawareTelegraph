@@ -23,11 +23,10 @@
 				/**
 				 * Main Content
 				 */
-				echo '<div class="container-fluid">';
+				echo '<div class="container-fluid mt-3">';
                     if (isset($_GET['action']) && ($_GET['action'] == 'posts_category')) {
-                        echo '<a href="' . INDEX_URL . '?action=categories" class="btn btn-outline-dark btn-sm my-2 mx-auto">Tornar a la llista de categories</a>';
+                        echo '<a href="' . INDEX_URL . '?action=categories" class="btn btn-outline-dark btn-sm my-2 mx-auto">'.POSTS_GO_BACK_CATEGORIES.'</a>';
                     }
-					echo '<img src="' . LOGO_POSTS . '" class="rounded mx-auto d-block col-3">';
 					foreach ($posts as $post) {
 					echo '<div style="display: flex; flex-wrap: nowrap; justify-content: center; flex-direction: row" class="center">';
 						echo '<div class="card" style="width: 18rem; margin: 5px;">';
@@ -39,7 +38,7 @@
 								foreach ($post['tags'] as $tag) {
 									echo '<span class="badge bg-dark text-white mx-1">' . $tag . '</span>';
 								}
-								echo '<br/><a href="' . INDEX_URL . '?action=post&id=' . $post['id'] . '" class="btn btn-outline-dark my-2">Veure més</a>';
+								echo '<br/><a href="' . INDEX_URL . '?action=post&id=' . $post['id'] . '" class="btn btn-outline-dark my-2">'.POSTS_VIEW_MORE.'</a>';
 							echo '</div>';
 						echo '</div>';
 					}

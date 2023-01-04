@@ -53,7 +53,7 @@
 		if ($stmt) {
 			header('Location: '. INDEX_URL . '?action=posts');
 		} else {
-			echo 'Error al eliminar el post';
+			echo ERROR_TO_DELETE_POST;
 			status_404();
 		}
 	}
@@ -63,7 +63,7 @@
 		if ($stmt) {
 			header('Location: '. INDEX_URL . '?action=post&id=' . $id . '');
 		} else {
-			echo 'Error al editar el post';
+			echo ERROR_TO_EDIT_POST;
 			status_404();
 		}
 
@@ -167,7 +167,7 @@
         if ($stmt) {
             header('Location: '. INDEX_URL . '?action=categories');
         } else {
-            echo 'Error al editar la categoria';
+            echo ERROR_TO_EDIT_CATEGORY;
             status_404();
         }
     }
@@ -177,7 +177,7 @@
         if ($stmt) {
             header('Location: '. INDEX_URL . '?action=categories');
         } else {
-            echo 'Error al eliminar la categoria';
+            echo ERROR_TO_DELETE_CATEGORY;
             status_404();
         }
     }

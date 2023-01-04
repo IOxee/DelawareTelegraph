@@ -48,7 +48,7 @@
             if ($stmt) {
                 header("Location: " . INDEX_URL . "?action=posts");
             } else {
-                echo "Error al cambiar el nivel del usuario";
+                echo ERROR_CHANGE_LEVEL;
             }
         }
 
@@ -60,7 +60,7 @@
         if ($stmt) {
             header("Location: " . INDEX_URL . "?apanel&dashboard");
         } else {
-            echo "Error al eliminar el usuario";
+            echo ERROR_DELETE_USER;
         }
     }
 
@@ -92,7 +92,7 @@
         if ($stmt) {
             header("Location: " . INDEX_URL . "?action=apanel&integrations&filesystem");
         } else {
-            echo "Error al eliminar el archivo";
+            echo ERORR_DELETE_FILE;
         }
     }
 
@@ -109,7 +109,7 @@
         if ($stmt) {
             header("Location: " . INDEX_URL . "?action=apanel&integrations&filesystem");
         } else {
-            echo "Error al eliminar el archivo";
+            echo ERORR_DELETE_FILE;
         }
     }
 

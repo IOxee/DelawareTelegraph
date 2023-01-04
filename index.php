@@ -4,7 +4,6 @@
 	require './routes.php';
 	require './app/config/db.php';
 	require './app/config/sh_config.php';
-    require './app/config/sh_translation.php';
 	require STATUS_404;
 
 	session_start();

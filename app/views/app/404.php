@@ -2,9 +2,9 @@
     function status_404(){
         echo '<img src="../../assets/img/404.png" alt="D\'oh" width="100%" height="100%">';
         if ($_SESSION['username']) {
-            echo '<a href="./index.php?action=posts" class="btn btn-outline-dark">Tornar a la pagina principal</a>';
+            echo '<a href="./index.php?action=posts" class="btn btn-outline-dark">'.PAGE_NOT_BUTTON_GO_BACK.'</a>';
         } else {
-            echo '<a href="./index.php" class="btn btn-outline-dark">Tornar a la pagina principal</a>';
+            echo '<a href="./index.php" class="btn btn-outline-dark">'.PAGE_NOT_BUTTON_GO_BACK.'</a>';
         }
     }
 

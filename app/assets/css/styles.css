@@ -1,9 +1,9 @@
 .bg {
-	background: url('../img/background_cms.png');
+	background: url('../img/background.png');
 	background-repeat: no-repeat;
-	background-position: top;
+	background-position: center;
 	background-size: contain;
-	height: 500px;
+	height: 250px;
 }
 
 .max-lines {

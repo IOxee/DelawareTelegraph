@@ -31,12 +31,12 @@
                             if ($category['image'] != '' || $category['image'] != NULL) {
                                 echo '<img src="' . $category['image'] . '" class="card-img-top" alt="...">';
                             } else {
-                                echo '<p class="card-img-top text-center mt-3">Imagen no disponible</p>';
+                                echo '<p class="card-img-top text-center mt-3">'.POSTS_CATEGORIES_IMG_NOT_FOUND.'</p>';
                             }
                             echo '<div class="card-body">';
                                 echo '<h5 class="card-title">' . $category['name'] . '</h5>';
                                 echo '<p class="card-text max-lines" style="height:120px">' . $category['description'] . '</p>';
-                                echo '<a href="' . INDEX_URL . '?action=posts_category&id=' . $category['id'] . '" class="btn btn-outline-dark">Veure més</a>';
+                                echo '<a href="' . INDEX_URL . '?action=posts_category&id=' . $category['id'] . '" class="btn btn-outline-dark">'.POSTS_CATEGORIES_BUTTON.'</a>';
                             echo '</div>';
 						echo '</div>';
 					}

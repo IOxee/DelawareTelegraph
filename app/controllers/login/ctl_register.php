@@ -20,12 +20,12 @@
 				$result = mdl_insert_user($username, $fullname, $hashPassword, $mail, $dob);
 
 				if ($result) {
-					echo "Usuari registrat correctament";
+					echo SUCCESS_REGISTER;
 				} else {
-					echo "Error al registrar l'usuari";
+					echo ERROR_TO_REGISTER;
 				}
 			} else {
-				echo "Les contrasenyes no coincideixen";
+				echo ERROR_PASSWORD_DOSENT_MATCH;
 			}
 		}
     }

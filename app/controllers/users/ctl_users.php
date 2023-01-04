@@ -60,16 +60,16 @@
 							$stmt = update_password($_SESSION['username'], $hash);
 
 							if ($stmt) {
-								$msg = "Contraseña cambiada correctamente";
+								$msg = SUCCESS_PASSWORD_CHANGED;
 							} else {
-								$msg = "Error al cambiar la contraseña";
+								$msg = ERROR_PASSWORD_CHANGED;
 							}
 						} else {
-							$msg = "Las contraseñas no coinciden";
+							$msg = ERROR_PASSWORDS_DOSENT_MATCH;
 
 						}
 					} else {
-						$msg = "La contraseña actual no es correcta";
+						$msg = ERROR_OLD_PASSWORD_DOSENT_MATCH;
 					}
 				} else {
 					if ($newpass == $newpass2) {
@@ -78,12 +78,12 @@
 
 						$stmt = update_password($_SESSION['username'], $hashPassword);
 						if ($stmt) {
-							$msg = "Contraseña cambiada correctamente";
+							$msg = SUCCESS_PASSWORD_CHANGED;
 						} else {
-							$msg = "Error al cambiar la contraseña";
+							$msg = ERROR_PASSWORD_CHANGED;
 						}
 					} else {
-						$msg = "Las contraseñas no coinciden";
+						$msg = ERROR_PASSWORDS_DOSENT_MATCH;
 					}
 				}
 			}
@@ -106,10 +106,10 @@
 		$stmt_social = update_social_media($id, $username, $linkedin, $github, $twitter, $instagram, $facebook);
 
 		if ($stmt && $stmt_social) {
-			$msg = "Perfil actualizado correctamente";
+			$msg = SUCCESS_UPDATE_PROFILE;
 			header("Location: " . INDEX_URL . "?action=profile");
 		} else {
-			$msg = "Error al actualizar el perfil";
+			$msg = ERROR_UPDATE_PROFILE;
 			header('LOCATION: ' . 404);
 		}
 
@@ -179,10 +179,10 @@
 		$stmt = update_private( $_SESSION['username'], $show_mail, $show_dob, $show_fullname, $show_bio, $show_social, $send_notifications);
 
 		if ($stmt) {
-			$msg = "Perfil actualizado correctamente";
+			$msg = SUCCESS_UPDATE_PROFILE;
 			header("Location: " . INDEX_URL . "?action=profile");
 		} else {
-			$msg = "Error al actualizar el perfil";
+			$msg = ERROR_UPDATE_PROFILE;
 			header('LOCATION: ' . 404);
 		}
 	}

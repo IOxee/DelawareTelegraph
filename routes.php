@@ -69,9 +69,11 @@
 	/**
 	 * Routes IMGs
 	 */
-	define('LOGO', './app/assets/img/logo.png');
+	define('OLDLOGO', './app/assets/img/logo.png');
+    define('LOGO', './app/assets/img/DelawareTelegraph.png');
 	define('DEFAULT_USER', './app/assets/img/default_user.jpg');
-	define('BACKGROUND_CMS', './app/assets/img/background_cms.png');
+	define('OLDBACKGROUND_CMS', './app/assets/img/background_cms.png');
+    define('BACKGROUND_CMS', './app/assets/img/background.png');
 	define('LOGO_POSTS', './app/assets/img/logo_posts.png');
 	define('404_IMG', './app/assets/img/404.png');
 	define('BUSINESS_LOGO', './app/assets/img/business_logo.png');
@@ -112,5 +114,4 @@
     /**
      * Routes Translations
      */
-    define('TRANSLATIONS', './app/translations/');
-    define('TRANSLATION_CAT_PATH', './app/translations/cat_translation.php');
+    define('TRANSLATIONS', './app/translations/translations.php');

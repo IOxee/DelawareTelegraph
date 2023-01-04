@@ -6,7 +6,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">
-					<img src=<?php echo LOGO ?> alt="Logo de la empresa">
+					<img src=<?php echo LOGO ?> width="428" height="120">
 				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -15,17 +15,17 @@
 					<ul class="navbar-nav">
 						<li>
 							<form action='<?php echo INDEX_URL ?>?action=posts' method='post'>
-								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="posts"><i class="fa-solid fa-newspaper"></i> Posts</button>
+								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="posts"><i class="fa-solid fa-newspaper"></i> <?php echo NAVBAR_BUTTON_POSTS ?></button>
 							</form>
 						</li>
 						<li>
 							<form action='<?php echo INDEX_URL ?>?action=reporters_profile' method='post'>
-								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="reporters_profile"><i class="fa-solid fa-user-tie"></i> Periodistes</button>
+								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="reporters_profile"><i class="fa-solid fa-user-tie"></i> <?php echo NAVBAR_BUTTON_REPORTERS ?></button>
 							</form>
 						</li>
 						<li>
 							<form action='<?php echo INDEX_URL ?>?action=categories' method='post'>
-								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="categories"><i class="fa-solid fa-tags"></i> Categories</button>
+								<button class="btn btn-outline-dark mx-2 my-3" type="submit" name="action" value="categories"><i class="fa-solid fa-tags"></i> <?php echo NAVBAR_BUTTON_CATEGORIES ?> </button>
 							</form>
 						</li>
 					</ul>
@@ -47,10 +47,10 @@
 							<ul class="dropdown-menu w-100 p-3 border border-dark" aria-labelledby="navbarDropdownMenu">
 								<?php
 									if (!isset($_SESSION['username'])) {
-										require LOGIN_VIEW;
+										require_once LOGIN_VIEW;
 										echo view_login();
 									} else {
-										require USERDETAILS_VIEW;
+										require_once USERDETAILS_VIEW;
 										echo view_userdetails();
 									}
 								?>
@@ -68,7 +68,7 @@
 							<ul class="dropdown-menu p-3 border border-dark" style="width:500px" aria-labelledby="navbarRegisterDrop">
 								<?php
 									if (!isset($_SESSION['username'])) {
-										require REGISTER_VIEW;
+										require_once REGISTER_VIEW;
 										echo view_register();
 									}
 								?>

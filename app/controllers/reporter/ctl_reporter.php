@@ -39,7 +39,7 @@
         if ($stmt) {
             header('Location: '. INDEX_URL . '?action=posts');
         } else {
-            echo 'Error al crear el post';
+            echo ERROR_TO_CREATE_POST;
             status_404();
         }
     }
@@ -49,7 +49,7 @@
         if ($stmt) {
             header('Location: '. INDEX_URL . '?action=reporter_panel&view');
         } else {
-            echo 'Error al crear la categoria';
+            echo ERROR_TO_CREATE_CATEGORY;
             status_404();
         }
     }
