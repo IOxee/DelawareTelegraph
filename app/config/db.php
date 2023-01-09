@@ -1,11 +1,11 @@
 <?php
  	defined('MY_CMS') or die('Permission denied');
-	define('DB_HOSTING', 'remote'); // local or remote
+	define('DB_HOSTING', 'local'); // local or remote
 	define('DB_SERVER', 'db4free.net'); // db4free.net or other
 
 	if ( DB_HOSTING == 'local') {
 		define('DB_HOST', 'localhost');
-		define('DB_NAME', 'my_cms');
+		define('DB_NAME', 'my_cms_ioxee_27');
 		define('DB_USER', 'root');
 		define('DB_PASS', '');
 		define('DB_PORT', 3306);

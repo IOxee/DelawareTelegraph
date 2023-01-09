@@ -16,7 +16,7 @@
 
 
 -- Volcando estructura de base de datos para my_cms_ioxee_27
-CREATE DATABASE IF NOT EXISTS `my_cms_ioxee_27` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `my_cms_ioxee_27` /*!40100 DEFAULT CHARACTER SET utf8mb4  */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `my_cms_ioxee_27`;
 
 -- Volcando estructura para tabla my_cms_ioxee_27.posts
@@ -27,11 +27,11 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `postTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `postTag` varchar(40) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
   `postAuthor` varchar(40) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `postHeaderIMG` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `postHeaderIMG` varchar(255) CHARACTER SET utf8mb4  DEFAULT NULL,
   `postCategory` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`postID`),
   UNIQUE KEY `postTitle` (`postTitle`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 CREATE TABLE IF NOT EXISTS;
 
 -- Volcando datos para la tabla my_cms_ioxee_27.posts: ~4 rows (aproximadamente)
 INSERT INTO `posts` (`postID`, `postTitle`, `postDesc`, `postTime`, `postTag`, `postAuthor`, `postHeaderIMG`, `postCategory`) VALUES
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `posts_categories` (
   `description` text,
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 CREATE TABLE IF NOT EXISTS;
 
 -- Volcando datos para la tabla my_cms_ioxee_27.posts_categories: ~2 rows (aproximadamente)
 INSERT INTO `posts_categories` (`id`, `name`, `description`, `image`) VALUES
@@ -63,9 +63,9 @@ CREATE TABLE IF NOT EXISTS `social_media` (
   `twitter` varchar(255) DEFAULT NULL,
   `instagram` varchar(255) DEFAULT NULL,
   `linkedin` varchar(255) DEFAULT NULL,
-  `github` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `github` varchar(255) CHARACTER SET utf8mb4  DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 CREATE TABLE IF NOT EXISTS;
 
 -- Volcando datos para la tabla my_cms_ioxee_27.social_media: ~1 rows (aproximadamente)
 INSERT INTO `social_media` (`id`, `nick`, `facebook`, `twitter`, `instagram`, `linkedin`, `github`) VALUES
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `dob` date DEFAULT NULL,
   `level` int NOT NULL DEFAULT '0',
   `img` varchar(255) DEFAULT NULL,
-  `bio` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `bio` text CHARACTER SET UTF8MB4 ,
   `show_mail` int NOT NULL DEFAULT '1',
   `show_dob` int NOT NULL DEFAULT '0',
   `show_fullname` int NOT NULL DEFAULT '0',
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `show_social` int NOT NULL DEFAULT '1',
   `send_notifications` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 CREATE TABLE IF NOT EXISTS;
 
 -- Volcando datos para la tabla my_cms_ioxee_27.users: ~3 rows (aproximadamente)
 INSERT INTO `users` (`id`, `nick`, `password`, `fullname`, `mail`, `dob`, `level`, `img`, `bio`, `show_mail`, `show_dob`, `show_fullname`, `show_bio`, `show_social`, `send_notifications`) VALUES
